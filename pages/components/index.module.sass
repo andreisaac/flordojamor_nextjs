@@ -1,0 +1,83 @@
+@import '../sass/presets.sass'
+
+@mixin google-font($family)
+  @import url("https://fonts.googleapis.com/css?family=#{$family}")
+
+@include google-font("Merriweather")
+
+.navbar
+  background-color: #240303
+  z-index: 1
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  border-bottom: 1px solid $black
+  text-align: center
+  border-bottom: 1px solid $brown-pale
+  box-shadow: 0 2px 2px $black
+  .container
+    box-shadow: 0px 2px 2px solid $black !important
+    width: 100%
+    overflow: hidden
+    .largeScreen
+      @media screen and (max-width: $break-small)
+        display: none!important
+      display: block
+      a
+        font-family: "Merriweather"
+        font-weight: bold
+        font-size: 22px
+        display: inline-block
+        text-shadow: 2px 2px 2px $black
+        border-right: 1px solid $brown-pale
+        display: inline-block
+        outline: 0
+        padding: 12px 36px
+        vertical-align: middle
+        overflow: hidden
+        text-decoration: none!important
+        color: #fff
+        text-align: center
+        cursor: pointer
+        white-space: nowrap
+      a:hover
+        background-color: #ff944d
+      a:first-child
+        border-left: 1px solid $brown-pale
+      a.active
+        background-color: #ff944d!important
+
+    .smallSreen
+      @media screen and (min-width: $break-small)
+        display: none
+      display: block
+      .bar
+        display: block
+        float: right!important
+      .title
+        display: block
+      .links
+        a
+          width: 100%!important
+      a
+        font-family: "Merriweather"
+        font-weight: bold
+        font-size: 22px
+        display: inline-block
+        text-shadow: 2px 2px 2px $black
+        border-right: 1px solid $brown-pale
+        display: inline-block
+        outline: 0
+        padding: 8px 16px
+        vertical-align: middle
+        overflow: hidden
+        text-decoration: none!important
+        color: #fff
+        text-align: center
+        cursor: pointer
+        white-space: nowrap
+      a:hover
+        background-color: #ff944d
+      a.active
+        background-color: #ff944d

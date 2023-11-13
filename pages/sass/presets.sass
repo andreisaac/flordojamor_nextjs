@@ -1,0 +1,1184 @@
+$break-small: 750px
+$break-medium: 1080px
+$break-large: 1081px
+
+$red: #f43325
+$red-pale-2: #fdd0ce
+$red-pale: #f98e86
+$red-dark: #c2160a
+
+$orange: #ff6600
+$orange-pale: #ffa366
+$orange-dark: #cc5200
+$orange-dark2: #803300
+
+$yellow: #ffeb3b
+$yellow-pale: #fff7b3
+$yellow-dark: #ffcc00
+
+$green: #4CAF50
+$green-pale-2: #e6ffe6
+$green-pale: #b8e0b9
+$green-dark: #367c3a
+
+$blue: #2196F3
+$blue-pale: #9ed1fa
+$blue-dark: #0a6fc2
+$blue-dark-2: #053861
+
+$purple: #8b0ac2
+$purple-pale: #de9efa
+$purple-dark: #680891
+
+$brown: #795548
+$brown-pale: #d9c6bf
+$brown-dark: #402d26
+
+$grey: #d9d9d9
+$grey-pale: #f9f9f9
+$grey-pale-2: #f1f1f1
+$grey-dark: #737373
+
+$black: #262626
+$black-pale: #535A60
+$black-dark: #1a1a1a
+
+.map
+  min-width: 100%
+  min-height: 100px
+  margin: 5px 0
+  text-align: center
+  border: 1px solid $grey-dark
+  line-height: 110px
+  font-size: 78px
+  background-color: $grey-pale
+  box-shadow: 0px 0px 3px $grey-dark
+.arrow-box-right-top
+  z-index: 4
+  position: relative
+  background-color: $grey-pale
+  border: 1px solid $grey-dark
+.arrow-box-right-top:after, .arrow-box-right-top:before
+  bottom: 100%
+  right: 8px
+  border: solid transparent
+  content: " "
+  height: 0
+  width: 0
+  position: absolute
+  pointer-events: none
+.arrow-box-right-top:after
+  border-color: rgba(241, 241, 241, 0)
+  border-bottom-color: $grey-pale
+  border-width: 4px
+  margin-right: -4px
+.arrow-box-right-top:before
+  border-color: rgba(217, 217, 217, 0)
+  border-bottom-color: $grey-dark
+  border-width: 5px
+  margin-right: -5px
+
+.tooltip-black
+  z-index: 4
+  position: relative
+  background-color: rgb(0,0,0)
+  background-color: rgba(0,0,0,0.9)
+  border: 1px solid $black
+  border-radius: 4px
+  color: $grey-pale
+.tooltip-black:after, .tooltip-black:before
+  bottom: 100%
+  left: 50%
+  border: solid transparent
+  content: " "
+  height: 0
+  width: 0
+  position: absolute
+  pointer-events: none
+.tooltip-black:after
+  border-color: rgba(23, 31, 36, 0)
+  border-bottom-color: #171f24
+  border-width: 4px
+  margin-left: -4px
+.tooltip-black:before
+  border-color: rgba(0, 0, 0, 0)
+  border-bottom-color: #000000
+  border-width: 5px
+  margin-left: -5px
+
+
+.inline-block
+  display: inline-block
+.block
+  display: block!important
+.hide
+  display: none
+.hide-s
+  @media screen and (max-width: $break-small)
+    display: none
+.hide-m
+  @media screen and (max-width: $break-medium)
+    display: none
+.hide-l
+  @media screen and (min-width: $break-medium)
+    display: none
+.text-shadow
+  text-shadow: -1px 1px 1px black
+.text-shadow-white
+  text-shadow: -1px 1px 1px white
+.box-shadow
+  box-shadow: 0px 1px 1px $grey-dark
+.bold
+  font-weight: bold
+.text-center
+  text-align: center
+.text-right
+  text-align: right
+.text-left
+  text-align: left
+.left
+  float: left!important
+.right
+  float: right!important
+
+.pre
+  white-space: pre-wrap
+  white-space: -moz-pre-wrap
+  white-space: -pre-wrap
+  white-space: -o-pre-wrap
+  word-wrap: break-word
+.pre
+  margin: 0px
+
+.small
+  font-size: 12px!important
+.large
+  font-size: 18px!important
+.xlarge
+  font-size: 36px!important
+.xxlarge
+  font-size: 64px!important
+
+.image
+  max-width: 100%
+  height: auto
+
+.specie
+  display: inline-block
+  margin: 0px
+  .specie-type
+    display: inline-block
+    margin: 0 4px
+    text-align: center
+    img
+      height: 30px
+      margin-bottom: 0px
+  .specie-breed
+    display: inline-block
+    margin: 0 4px
+    label
+      font-weight: bold
+
+.gender
+  display: inline-block
+  font-size: 18px
+.gender-male
+  color: $blue-dark
+.gender-female
+  color: $red
+
+.confirm-modal
+  @extend .container
+  @extend .disable-select
+  cursor: default
+  width: 500px!important
+  background-color: $grey-pale
+  margin: 0px auto
+  border-radius: 4px
+  border: 1px solid $grey
+  .header
+    @extend .bold
+    background-color: $grey-pale-2
+    margin: 0px
+    padding: 6px 18px
+    border-bottom: 1px solid $grey
+    border-top-left-radius: 4px
+    border-top-right-radius: 4px
+  .container
+    padding: 8px 14px
+    p
+      margin: 4px 0px
+      padding-left: 18px
+
+.image-modal
+  padding: 20px!important
+  @media screen and (max-width: $break-small)
+    padding: 4px!important
+  .modal-container
+    width: 100%!important
+    max-height: 100%
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    -webkit-align-items: stretch
+    align-items: stretch
+    overflow: hidden
+    .user-link
+      width: 100%
+      box-shadow: none
+      text-align: left
+      border-top: 0px
+      border-radius: 0px
+      padding: 2px
+      overflow: hidden
+      .thumb
+        position: relative!important
+        display: inline-block
+        top: 0px!important
+        left: 0px!important
+        margin-top: 0px
+        text-align: left
+      .user-text
+        display: inline-block
+        padding-left: 8px
+        line-height: 28px
+    @media screen and (max-width: $break-medium)
+      -webkit-flex-direction: column
+      flex-direction: column
+      max-height: auto
+      overflow: visible
+    .image-modal-close
+      z-index: 3
+      cursor: pointer
+      position: absolute
+      top: 8px
+      right: 8px
+      background-color: $red-dark
+      color: $grey-pale
+      font-size: 18px
+      padding: 2px 10px
+      border-radius: 50%
+      border: 1px solid $red
+    .image-modal-close:hover
+      background-color: $red
+      border: 1px solid $red-dark
+    .image-modal-close:active
+      background-color: $red-dark
+      border: none
+
+
+
+    .image-modal-image-full
+      @extend .disable-select
+      position: absolute
+      top: 20px
+      bottom: 20px
+      left: 20px
+      right: 20px
+      border-radius: 4px
+      padding: 8px
+      background-color: black
+      img
+        display: block
+        margin: auto
+        border-radius: 4px
+        max-width: 100%
+        max-height: 100%
+      a
+        cursor: pointer
+        z-index: 5
+        position: absolute
+        top: 50%
+        margin-top: -10px
+        font-size: 28px
+        color: $grey-pale
+        @extend .text-shadow
+      a:hover
+        color: $grey
+      a:active
+        color: $black
+      .chevron-right
+        right: 14px
+      .chevron-left
+        left: 14px
+
+
+    .image-modal-image
+      @extend .disable-select
+      position: absolute
+      top: 20px
+      bottom: 20px
+      left: 20px
+      right: 30%
+      display: -webkit-flex
+      display: -ms-flexbox
+      display: flex
+      -webkit-align-items: center
+      align-items: center
+      border-top-left-radius: 4px
+      border-bottom-left-radius: 4px
+      padding: 8px
+      background-color: black
+      @media screen and (max-width: $break-medium)
+        position: relative
+        top: auto
+        bottom: auto
+        right: auto
+        left: auto
+        display: block
+        width: 100%
+      img
+        display: block
+        margin: auto
+        border-radius: 4px
+        max-width: 100%
+        max-height: 100%
+      a
+        cursor: pointer
+        z-index: 5
+        position: absolute
+        top: 50%
+        margin-top: -10px
+        font-size: 28px
+        color: $grey-pale
+        @extend .text-shadow
+      a:hover
+        color: $grey
+      a:active
+        color: $black
+      .chevron-right
+        right: 14px
+      .chevron-left
+        left: 14px
+    .image-modal-comments
+      position: absolute
+      top: 20px
+      bottom: 20px
+      right: 20px
+      left: 70%
+      border-top-right-radius: 4px
+      border-bottom-right-radius: 4px
+      background-color: white
+      overflow-y: auto
+      @media screen and (max-width: $break-medium)
+        overflow-y: visible
+        position: relative
+        top: auto
+        bottom: auto
+        right: auto
+        left: auto
+        display: block
+        width: 100%
+        border-top-right-radius: 0px
+        border-bottom-right-radius: 4px
+        border-bottom-left-radius: 4px
+      .image-modal-header
+        position: relative
+        width: 100%
+        padding: 12px 12px 2px 12px
+        @extend .container
+        .thumb, .no-thumb
+          position: absolute
+          top: 14px
+          left: 12px
+          cursor: pointer
+          width: 45px
+          height: 45px
+        .underline
+          .like
+            float: right
+          .btn-red, .btn-green
+            margin-left: 14px
+            float: right
+      .image-modal-content
+        position: relative
+        vertical-align: top
+        margin-left: 51px
+        padding-left: 6px
+        h5
+          margin: 0px
+          a
+            cursor: pointer
+            color: $blue-dark
+            font-weight: bold
+          a:hover
+            color: $blue-dark-2
+            text-decoration: underline
+      .pre
+        margin: 8px 0px
+
+.modal
+  z-index: 3
+  display: block
+  padding-top: 100px
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  overflow: auto
+  background-color: rgb(0,0,0)
+  background-color: rgba(0,0,0,0.7)
+  @media screen and (max-width: $break-small)
+    padding-top: 30px
+  @media screen and (max-width: $break-medium)
+    padding-top: 50px
+.modal-content
+  margin: auto
+  background-color: #fff
+  position: relative
+  padding: 0
+  outline: 0
+  width: 900px
+  @media screen and (max-width: $break-small)
+    width: 500px
+    margin: 0 10px
+    width: auto!important
+  @media screen and (max-width: $break-medium)
+    width: 600px
+.close-modal
+  cursor: pointer
+  position: absolute
+  top: 14px
+  right: 14px
+  padding: 0px 10px 2px 12px
+  text-decoration: none
+  font-size: 26px
+  font-weight: bold
+  color: $grey-pale
+  background-color: $black
+  border: 1px solid $grey
+  border-radius: 50%
+  borx-shadow: 0 0 4px black
+.close-modal:hover
+  background-color: black
+  color: $grey-dark
+.close-modal:active
+  top: 12px
+  right: 12px
+  font-size: 30px
+.margin
+  margin: 16px!important
+.margin-0
+  margin: 0!important
+.margin-top
+  margin-top: 16px!important
+.margin-bottom
+  margin-bottom: 16px!important
+.margin-left
+  margin-left: 16px!important
+.margin-right
+  margin-right: 16px!important
+.margin-top-small
+  margin-top: 8px!important
+.margin-bottom-small
+  margin-bottom: 8px!important
+.margin-left-small
+  margin-left: 8px!important
+.margin-right-small
+  margin-right: 8px!important
+
+.padding-tiny
+  padding: 2px 4px!important
+.padding-small
+  padding: 4px 8px!important
+.padding
+  padding: 8px 16px!important
+.padding-large
+  padding: 12px 24px!important
+.padding-xlarge
+  padding: 16px 32px!important
+.padding-xxlarge
+  padding: 24px 48px!important
+  @media screen and (max-width: $break-small)
+    padding: 12px 22px!important
+  @media screen and (max-width: $break-medium)
+    padding: 14px 28px!important
+.padding-jumbo
+  padding: 32px 64px!important
+.padding-4
+  padding-top: 4px!important
+  padding-bottom: 4px!important
+.padding-8
+  padding-top: 8px!important
+  padding-bottom: 8px!important
+.padding-12
+  padding-top: 12px!important
+  padding-bottom: 12px!important
+.padding-16
+  padding-top: 16px!important
+  padding-bottom: 16px!important
+.padding-24
+  padding-top: 24px!important
+  padding-bottom: 24px!important
+.padding-32
+  padding-top: 32px!important
+  padding-bottom: 32px!important
+.padding-48
+  padding-top: 48px!important
+  padding-bottom: 48px!important
+.padding-64
+  padding-top: 64px!important
+  padding-bottom: 64px!important
+.padding-128
+  padding-top: 128px!important
+  padding-bottom: 128px!important
+.padding-0
+  padding: 0!important
+.padding-top
+  padding-top: 8px!important
+.padding-bottom
+  padding-bottom: 8px!important
+.padding-left
+  padding-left: 16px!important
+.padding-right
+  padding-right: 16px!important
+
+.padding-left-small
+  padding-left: 8px!important
+.padding-right-small
+  padding-right: 8px!important
+
+.like
+  position: relative
+  display: inline-block
+  a
+    span
+      cursor: pointer
+      display: inline-block
+      padding: 0px 3px 0px 4px
+      margin-right: 4px
+      border-radius: 50%
+      background-color: $orange
+      color: white
+      @extend .text-shadow
+  .tooltip-black
+    z-index: 8
+    position: absolute!important
+    top: 22px
+    left: 50%
+    margin-left: -70px
+    width: 140px
+    padding: 4px 6px
+    p
+      display: block
+      margin: 0px
+      font-size: 11px
+
+.envelope
+  position: relative
+  div
+    i
+      font-size: 24px
+  span
+    position: absolute
+    top: 0px
+    left: 15px
+    font-size: 8px
+    font-weight: bold
+    color: white
+    box-shadow:  1px 1px 1px black
+    border: 1px solid $red-dark
+    background-color: $red
+    border-radius: 50%
+    padding: 0px 3px
+
+
+
+.user-link
+  position: relative
+  display: inline-block
+  color: $blue-dark
+  font-weight: bold
+  padding-left: 32px
+  height: 32px
+  overflow: hidden
+  word-break: break-all
+  .thumb, .no-thumb
+    position: absolute
+    top: 0px
+    left: 0px
+    width: 28px
+    height: 28px
+    background-color: $black
+    i
+      font-size: 20px
+  .user-text
+    color: $blue-dark
+    text-align: left
+    vertical-align: top
+    line-height: 13px
+    text-decoration: none
+.user-link:hover
+  color: $blue-dark-2
+  text-decoration: underline
+
+.user-link.box
+  @extend .container
+  background-color: white
+  box-shadow: 0px 1px 1px $grey-dark
+  border-top: 4px solid $orange
+  text-align: center
+  padding-left: 0px
+  border-radius: 4px
+  overflow: visible
+  text-decoration: none
+  .thumb
+    padding: 4px
+    border: 1px solid $grey
+    background-color: $grey-pale-2
+    position: relative
+    margin-top: 4px
+    width: auto
+    height: auto
+    line-height: 100%
+    img
+      margin-bottom: 0px
+  .user-text
+    text-align: center
+    font-size: 16px
+    line-height: 100%
+    margin: 8px 0px
+
+.user-link.full:hover
+  text-decoration: none
+.user-link.full
+  box-shadow: 0px 1px 3px $grey-dark
+  height: 260px
+  width: 30%
+  margin: 2px 1.5%
+  padding-left: 0px
+  background-color: white
+  .thumb
+    position: absolute
+    top: 55px
+    left: 14px
+    width: 80px
+    height: 80px
+    background-color: transparent
+    cursor: pointer
+    img
+      border-radius: 50%
+      padding: 4px
+      background-color: white
+  .cover
+    margin: 1px
+    height: 100px
+    width: auto
+    cursor: pointer
+  .user-text
+    @extend .container
+    color: $black
+    .follow
+      margin: 4px 14px
+      text-align: right
+    .userdata
+      padding: 6px 12px
+      .name
+        display: inline-block
+        text-decoration: none
+      .icons
+        margin-top: 8px
+        .type
+          display: inline-block
+          i
+            background-color: $blue-dark
+            border: 1px solid $blue
+            border-radius: 4px
+            color: white
+            padding: 2px
+            font-size: 20px
+          span
+            font-size: 12px
+            vertical-align: 4px
+      .description
+        margin-top: 8px
+        font-weight: 400
+        font-size: 13px
+        padding-bottom: 8px
+        overflow-y: hidden
+
+.age
+  display: inline-block
+  text-align: center
+  i
+    color: $red
+    font-size: 34px
+  div
+    line-height: 14px
+    display: inline-block
+
+
+
+.image-thumb
+  background-color: white
+  padding: 2px
+  border-radius: 2px
+  border: 1px solid $grey
+.no-image
+  background-color: $grey-pale
+  padding: 0px
+  text-align: center
+  font-size: 20px
+  border: 1px solid $grey
+
+.thumb
+  display: inline-block
+  border-radius: 2px
+  width: 34px
+  height: 34px
+  line-height: 34px
+  img
+    border-radius: 2px
+.no-thumb
+  display: inline-block
+  background-color: $grey
+  color: white
+  text-align: center
+  border-radius: 2px
+  width: 34px
+  height: 34px
+  line-height: 34px
+  i
+    vertical-align: bottom
+    font-size: 30px
+.img-border
+  cursor: pointer
+  border: 1px solid $grey
+  border-radius: 2px
+  padding: 2px
+.img-border:hover
+  background-color: $black
+
+.not-found
+  box-shadow: 0px 1px 1px $grey-dark
+  border-radius: 4px
+  background-color: white
+  margin: 14px 0px
+  padding: 12px 24px
+
+.btn-proto
+  text-decoration: none
+  text-align: center
+  display: inline-block
+  cursor: pointer
+  font-size: 14px
+  padding: 4px 8px
+  border-radius: 2px
+  box-shadow: 0px 1px 1px $black
+  outline: 0
+  border: 1px solid
+.btn-proto:active
+  box-shadow: 0px 0px 0px $black-pale!important
+.btn-proto[disabled]
+  cursor: not-allowed!important
+  opacity: 0.4
+
+
+.btn-social
+  position: relative
+  i
+    display: inline-block
+    position: absolute
+    left: 0
+    top: 0
+    width: 34px
+    height: 100%
+    border-right: 1px solid
+    border-color: inherit
+    padding: 10px
+
+.btn
+  @extend .btn-proto
+  border-color: $grey-dark
+  background-color: $grey-pale
+.btn:hover
+  border-color: $grey-dark
+  background-color: $grey
+.btn:active
+  border-color: $grey-dark
+  background-color: $grey-pale-2
+.btn.active
+  color: white
+  border-color: $grey
+  background-color: $grey-pale-2
+
+.btn-red
+  @extend .btn-proto
+  @extend .text-shadow
+  color: white
+  border-color: $red-dark
+  background-color: $red
+.btn-red:hover
+  border-color: $red
+  background-color: $red-dark
+.btn-red:active
+  border-color: $red-dark
+  background-color: $red
+.btn-red.active
+  border-color: $red
+  background-color: $red-dark
+
+.btn-orange
+  @extend .btn-proto
+  @extend .text-shadow
+  color: white
+  border-color: $orange-dark
+  background-color: $orange
+.btn-orange:hover
+  border-color: $orange
+  background-color: $orange-dark
+.btn-orange:active
+  border-color: $orange-dark
+  background-color: $orange
+.btn-orange.active
+  border-color: $orange
+  background-color: $orange-dark
+
+.btn-yellow
+  @extend .btn-proto
+  border-color: $yellow-dark
+  background-color: $yellow
+.btn-yellow:hover
+  border-color: $yellow
+  background-color: $yellow-dark
+.btn-yellow:active
+  border-color: $yellow-dark
+  background-color: $yellow
+.btn-yellow.active
+  border-color: $yellow
+  background-color: $yellow-dark
+
+.btn-green
+  @extend .btn-proto
+  @extend .text-shadow
+  color: white
+  border-color: $green-dark
+  background-color: $green
+.btn-green:hover
+  border-color: $green
+  background-color: $green-dark
+.btn-green:active
+  border-color: $green-dark
+  background-color: $green
+.btn-green.active
+  border-color: $green
+  background-color: $green-dark
+
+.btn-blue
+  @extend .btn-proto
+  @extend .text-shadow
+  color: white
+  border-color: $blue-dark
+  background-color: $blue
+.btn-blue:hover
+  border-color: $blue
+  background-color: $blue-dark
+.btn-blue:active
+  border-color: $blue-dark
+  background-color: $blue
+.btn-blue.active
+  border-color: $blue
+  background-color: $blue-dark
+
+.btn-blue-dark
+  @extend .btn-proto
+  @extend .text-shadow
+  color: white
+  border-color: $blue
+  background-color: $blue-dark
+.btn-blue-dark:hover
+  border-color: $blue-dark
+  background-color: $blue
+.btn-blue-dark:active
+  border-color: $blue
+  background-color: $blue-dark
+.btn-blue-dark.active
+  border-color: $blue-dark
+  background-color: $blue
+
+.btn-black
+  @extend .btn-proto
+  @extend .text-shadow
+  color: white
+  border-color: $black
+  background-color: $black-dark
+.btn-black:hover
+  border-color: $black-dark
+  background-color: $black
+.btn-black:active
+  border-color: $black
+  background-color: $black-dark
+.btn-black.active
+  border-color: $black-dark
+  background-color: $black
+
+.btn-white
+  @extend .btn-proto
+  color: $black
+  border-color: $black
+  background-color: white
+.btn-white:hover
+  color: $black
+  border-color: $black
+  background-color: $grey-pale-2
+.btn-white:active
+  border-color: $grey-dark
+  background-color: white
+.btn-white.active
+  border-color: $grey-dark
+  background-color: white
+
+.btn-follow
+  @extend .btn-proto
+  box-shadow: none
+  font-size: 12px
+  border-radius: 14px
+  padding: 4px 12px
+  border: 2px solid $orange
+  color: $orange-dark
+.btn-follow:hover
+  border-color: $orange-dark2
+  background-color: $orange-dark2
+  color: white
+.btn-follow.true
+  border-color: $orange-dark
+  background-color: $orange-dark
+  color: white
+
+.btn-xsmall
+  padding: 2px 6px!important
+
+.btn-small
+  font-size: 12px!important
+  padding: 1px 8px!important
+
+.btn-medium
+  padding: 6px 12px!important
+
+.btn-large
+  font-size: 18px!important
+  padding: 10px 18px!important
+
+.fa-toggle-on
+  color: $green
+
+.disable-select
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+.enable-select
+  -webkit-touch-callout: text
+  -webkit-user-select: text
+  -moz-user-select: text
+  -ms-user-select: text
+  user-select: text
+
+.parent.father
+  background-color: $blue-pale
+.parent.mother
+  background-color: $red-pale
+.parent
+  cursor: pointer
+  padding: 4px 8px!important
+  border-radius: 4px
+  span
+    display: inline-block
+    float: right
+  label
+    display: block
+    font-weight: bold
+
+.male.xs
+  padding: 0px 6px 2px 8px
+  font-size: 16px!important
+.female.xs
+  padding: 2px 7px 0px 8px
+  font-size: 16px!important
+.male
+  display: inline-block
+  padding: 2px 8px 4px 10px
+  border-radius: 50%
+  background-color: $blue
+  font-size: 20px!important
+  color: $grey-pale
+  cursor: pointer
+.female
+  display: inline-block
+  padding: 2px 9px 4px 11px
+  border-radius: 50%
+  background-color: $red
+  font-size: 20px!important
+  color: $grey-pale
+  cursor: pointer
+
+.label
+  cursor: default
+  display: inline-block
+  background-color: $grey-pale
+  border: 1px solid $grey
+  border-radius: 4px
+  margin: 5px
+  padding: 3px 8px
+  a
+    display: inline-block
+    cursor: pointer
+    margin-left: 3px
+    margin-right: -4px
+    border-radius: 50%
+    padding: 0px 5px 1px 4px
+  a:hover
+    background-color: $grey
+
+.label:nth-child(1)
+  border-left: 3px solid $red
+.label:nth-child(2)
+  border-left: 3px solid $orange
+.label:nth-child(3)
+  border-left: 3px solid $yellow-dark
+.label:nth-child(4)
+  border-left: 3px solid $green
+.label:nth-child(5)
+  border-left: 3px solid $blue
+.label:nth-child(6)
+  border-left: 3px solid $red
+.label:nth-child(7)
+  border-left: 3px solid $orange
+.label:nth-child(8)
+  border-left: 3px solid $yellow
+.label:nth-child(9)
+  border-left: 3px solid $green
+.label:nth-child(10)
+  border-left: 3px solid $blue
+
+  .table
+    display: table
+    box-sizing: border-box
+    width: 100%!important
+    max-width: 100%
+    margin-bottom: 20px
+    background-color: transparent
+    text-align: start
+    white-space: normal
+    line-height: normal
+    font-weight: normal
+    font-size: medium
+    font-style: normal
+    text-align: start
+    border-collapse: collapse
+    border-spacing: 2px
+    border-color: grey
+    font-variant: normal
+    tbody
+      tr
+        display: inline-block
+        vertical-align: inherit
+        border-color: inherit
+        width: 100%
+        td
+          display: table-cell
+          vertical-align: inherit
+          padding: 8px
+          vertical-align: top
+          border-top: 1px solid #ddd
+
+
+.container
+  clear: both
+  display: table
+  width: 100%
+.container:before, .container:after
+  content: ""
+  display: table
+  clear: both
+
+.row:after, .row:before, .row-padding:after, .row-padding:before
+  content: ""
+  display: table
+  clear: both
+
+.row-padding
+  .col
+    padding: 0 8px
+
+.col
+  float: left
+  width: 100%
+
+.col.s1
+  width: 8.33333%
+.col.s2
+  width: 16.66666%
+.col.s3
+  width: 24.99999%
+.col.s4
+  width: 33.33333%
+.col.s5
+  width: 41.66666%
+.col.s6
+  width: 49.99999%
+.col.s7
+  width: 58.33333%
+.col.s8
+  width: 66.66666%
+.col.s9
+  width: 74.99999%
+.col.s10
+  width: 83.33333%
+.col.s11
+  width: 91.66666%
+.col.s12
+  width: 99.99999%
+@media (min-width: 601px)
+  .col.m1
+    width: 8.33333%
+  .col.m2
+    width: 16.66666%
+  .col.m3
+    width: 24.99999%
+  .col.m4
+    width: 33.33333%
+  .col.m5
+    width: 41.66666%
+  .col.m6
+    width: 49.99999%
+  .col.m7
+    width: 58.33333%
+  .col.m8
+    width: 66.66666%
+  .col.m9
+    width: 74.99999%
+  .col.m10
+    width: 83.33333%
+  .col.m11
+    width: 91.66666%
+  .col.m12
+    width: 99.99999%
+
+@media (min-width:993px)
+  .col.l1
+    width: 8.33333%
+  .col.l2
+    width: 16.66666%
+  .col.l3
+    width: 24.99999%
+  .col.l4
+    width: 33.33333%
+  .col.l5
+    width: 41.66666%
+  .col.l6
+    width: 49.99999%
+  .col.l7
+    width: 58.33333%
+  .col.l8
+    width: 66.66666%
+  .col.l9
+    width: 74.99999%
+  .col.l10
+    width: 83.33333%
+  .col.l11
+    width: 91.66666%
+  .col.l12
+    width: 99.99999%

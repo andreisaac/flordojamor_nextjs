@@ -1,0 +1,159 @@
+@import './sass/presets'
+
+.body
+  padding-top: 50px
+  margin: 0px 0px 0px 0px!important
+  width: 100%
+  color: $black
+  @media screen and (min-width: $break-large)
+    background-image: url("./images/background.jpg")
+  @media screen and (max-width: $break-medium)
+    background-image: url("./images/background_1080.jpg")
+  @media screen and (max-width: $break-small)
+    background-image: url("./images/background_750.jpg")
+
+.rowPadding
+  @extend .row-padding
+.colL4
+  @extend .col
+  @extend .l4
+
+.menu
+  font-family: "Roboto Slab"
+  font-size: 18px
+  font-weight: 400
+  margin: 64px 128px
+  cursor: default
+  .pratosDia, .pratosCarne, .pratosPeixe
+    padding: 18px 2px
+    background-color: white
+    border-radius: 8px
+    border: 1px solid $black
+    box-shadow: 2px 2px 2px $black
+    min-height: 665px
+    text-align: center
+    .date
+      margin: 16px
+    img
+      max-width: 100%
+    .table
+      margin-top: 16px
+      width: 100%
+      text-align: left
+      padding: 4px 12px
+      td
+        padding: 6px 12px
+        border-top: 1px solid $grey
+      td:hover
+        background-color: $grey-pale-2
+      #menuPrice
+        text-align: right
+  h2
+    font-size: 24px
+    font-family: "Merriweather"
+    font-weight: bold
+    text-shadow: 1px 1px 1px $grey-dark
+    border: 1px solid $grey-dark
+    display: inline-block
+    padding: 4px 18px
+    border-radius: 4px
+    box-shadow: 2px 2px 1px $black inset, -1px -1px 1px $black inset
+    background-image: url("./images/background-tittle.jpg")
+  .contacts
+    @extend .row
+    margin-top: 44px
+    div
+      margin-top: 44px
+      @extend .col
+      @extend .m6
+      @extend .l6
+  .emptyMenu
+    margin-top: 8px
+
+.alertInfo
+  @media screen and (min-width: $break-large)
+    margin: 14px 128px
+  @media screen and (max-width: $break-medium)
+    font-size: 18px
+  @media screen and (max-width: $break-small)
+    font-size: 16px
+  font-size: 24px
+  background-color: #ffcc99
+  border: 1px solid $grey-dark
+  border-radius: 5px
+  box-shadow: 2px 2px 2px black
+  margin: 14px 16px
+  padding: 12px 18px
+
+.alertInfo.green
+  background-color: $green
+  color: White
+  text-shadow: 1px 1px 1px black
+
+
+#office
+  @media screen and (max-width: 1280px)
+    margin: 16px
+  @media screen and (max-width: $break-medium)
+    margin: 16px 0px
+    font-size: 16px
+    .pratosDia, .pratosCarne, .pratosPeixe
+      margin: 8px 0
+      min-height: 280px!important
+      img
+        width: auto
+        display: block
+        margin: auto
+    h2
+      font-size: 20px
+  @media screen and (max-width: $break-small)
+    margin: 8px 16px
+    font-size: 16px
+    .pratosDia, .pratosCarne, .pratosPeixe
+      margin: 8px 0
+      min-height: 280px!important
+    h2
+      font-size: 20px
+  font-family: "Roboto Slab"
+  font-size: 18px
+  font-weight: 400
+  margin: 64px 128px
+  cursor: default
+  .pratosDia, .pratosCarne, .pratosPeixe
+    background-color: white
+    border-radius: 8px
+    border: 1px solid $black
+    box-shadow: 2px 2px 2px $black
+    min-height: 665px
+    text-align: center
+    img
+      max-width: 100%
+    .table
+      width: 100%
+      text-align: left
+      padding: 4px 12px
+      td
+        padding: 6px 12px
+        border-top: 1px solid $grey
+      td:hover
+        background-color: $grey-pale-2
+      #menuPrice
+        text-align: right
+  h2
+    font-size: 24px
+    font-family: "Merriweather"
+    font-weight: bold
+    text-shadow: 1px 1px 1px $grey-dark
+    border: 1px solid $grey-dark
+    display: inline-block
+    padding: 4px 18px
+    border-radius: 4px
+    box-shadow: 2px 2px 1px $black inset, -1px -1px 1px $black inset
+    background-image: url("./images/background-tittle.jpg")
+  h1
+    display: inline-block
+    background-color: white
+    border-radius: 8px
+    border: 1px solid $black
+    box-shadow: 2px 2px 2px $black
+    padding: 12px 72px

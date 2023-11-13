@@ -1,0 +1,45 @@
+@import '../sass/presets'
+
+.cols6m6l4
+  @extend .col
+  @extend .s6
+  @extend .m6
+  @extend .l4
+
+.colL4
+  @extend .col
+  @extend .l4
+
+.contacts
+  @media screen and (min-width: $break-large)
+    margin: 32px 128px
+  @media screen and (max-width: $break-medium)
+    margin: 16px 64px
+  @media screen and (max-width: $break-small)
+    margin: 4px 8px
+    padding: 4px
+    div
+      font-size: 16px!important
+  font-family: "Roboto Slab"
+  background-color: white
+  border: 1px solid black
+  box-shadow: 2px 2px 2px black
+  padding: 16px
+  div
+    text-align: center
+    font-size: 18px
+    a
+      color: black
+    h2
+      font-size: 24px
+      font-family: "Merriweather"
+      font-weight: bold
+      text-shadow: 1px 1px 1px $grey-dark
+      border: 1px solid $grey-dark
+      display: inline-block
+      padding: 4px 18px
+      border-radius: 4px
+      box-shadow: 2px 2px 1px $black inset, -1px -1px 1px $black inset
+      background-image: url("../images/background-tittle.jpg")
+      i
+        margin-right: 12px
