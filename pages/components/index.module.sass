@@ -5,6 +5,74 @@
 
 @include google-font("Merriweather")
 
+.labelInput
+  padding-left: 8px
+.inputErrorAlert
+  border: 1px solid $red
+  border-radius: 4px
+  background-color: #ffcccc
+  padding: 4px 8px
+  width: 98%
+  margin: 6px 0
+.inputComponent
+    @media screen and (max-width: $break-small)
+      input
+        padding-right: 0px!important
+      .checkerSuccess, .checkerError
+        display: none!important
+.inputComponent
+  position: relative
+  input
+    padding: 4px 6px
+    border-radius: 2px
+  input.success, input.error
+    padding-right: 36px
+  .checkerSuccess, .checkerError
+    display: inline-block
+    position: absolute
+    min-width: 34px
+    heigth: 34px
+    top: 5px
+    right: 12px
+    font-size: 16px
+    text-align: center
+    padding: 4px 8px
+  .checkerSuccess
+    border-color: $green
+    color: $green
+  .checkerError
+    border-color: $red
+    color: $red
+  .btn
+    display: inline-block
+    position: absolute
+    min-width: 34px
+    heigth: 34px
+    top: 0px
+    right: 0px
+    font-size: 16px
+    padding: 4px 8px
+    color: white
+
+.footer
+  padding: 18px 32px
+  text-align: center
+  background-color: $black
+  color: white
+  h1
+    font-size: 40px
+    font-family: Pacifico
+    text-shadow: 2px 2px black
+  .copyright
+    text-align: right
+    text-shadow: 2px 2px black
+  div
+    text-align: left
+    .btnGrey
+      @extend .btn
+      margin-top: 32px
+      color: $grey-dark!important
+
 .navbar
   background-color: #240303
   z-index: 1

@@ -1,0 +1,134 @@
+@import '../sass/presets'
+@media screen and (min-width: $break-large)
+
+@media screen and (max-width: $break-medium)
+
+@media screen and (max-width: $break-small)
+
+.office
+  @extend .container
+  font-family: "Roboto Slab"
+  font-size: 18px
+  font-weight: 400
+  padding: 24px 200px
+  cursor: default
+  @media screen and (max-width: $break-medium)
+    padding: 24px 100px
+  @media screen and (max-width: $break-small)
+    padding: 18px 16px
+    .inputRow
+      div
+        padding: 0px!important
+  h2
+    font-size: 20px
+  .pratosDia, .pratosCarne, .pratosPeixe
+    @extend .padding
+    background-color: white
+    border-radius: 8px
+    border: 1px solid $black
+    box-shadow: 2px 2px 2px $black
+    margin: auto
+    margin-bottom: 18px
+    text-align: center
+    @media screen and (min-width: $break-large)
+      width: 900px
+    .container
+      @extend .container
+    .rowPadding
+      @extend .row
+      .name
+        @extend .col
+        @extend .s6
+        @extend .l6
+      .hdose
+        @extend .col
+        @extend .s2
+        @extend .l2
+      .dose
+        @extend .col
+        @extend .s2
+        @extend .l2
+    .inputRow
+      @extend .row-padding
+      margin: 12px auto
+      .nameInp
+        @extend .col
+        @extend .s6
+        @extend .m6
+        @extend .l6
+      .priceInp
+        @extend .col
+        @extend .s2
+        @extend .m2
+        @extend .l2
+      .price2Inp
+        @extend .col
+        @extend .s2
+        @extend .m2
+        @extend .l2
+      .func
+        @extend .col
+        @extend .s2
+        @extend .m2
+        @extend .l2
+        a
+          margin: auto 4px
+          @media screen and (max-width: $break-small)
+            margin: auto 1px
+            i
+              margin: 6px auto
+              font-size: 10px
+        .clean
+          @extend .btn
+          @extend .btn-blue
+        .del
+          @extend .btn
+          @extend .btn-red
+    .table
+      width: 100%
+      text-align: left
+      padding: 4px 12px
+      td
+        padding: 6px 12px
+        border-top: 1px solid $grey
+      td:hover
+        background-color: $grey-pale-2
+      #menuPrice
+        text-align: right
+  h2
+    font-size: 24px
+    font-family: "Merriweather"
+    font-weight: bold
+    text-shadow: 1px 1px 1px $grey-dark
+    border: 1px solid $grey-dark
+    display: inline-block
+    padding: 4px 18px
+    border-radius: 4px
+    box-shadow: 2px 2px 1px $black inset, -1px -1px 1px $black inset
+    background-image: url("../images/background-tittle.jpg")
+  h1
+    display: inline-block
+    background-color: white
+    border-radius: 8px
+    border: 1px solid $black
+    box-shadow: 2px 2px 2px $black
+    padding: 12px 72px
+  .addLine, .submitInput
+    @extend .btn
+    @extend .margin-bottom
+    @extend .margin-top
+    padding: 8px 12px
+    font-size: 18px
+    font-family: arial
+  .addLine
+    @extend .btn-blue
+    float: left
+    margin-left: 14px
+  .submitInput
+    @extend .btn-green
+    float: right
+    margin-right: 34px
+  .loaderInput
+    float: right
+    margin-top: 28px
+    margin-right: 42px

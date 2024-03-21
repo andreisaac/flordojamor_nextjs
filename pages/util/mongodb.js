@@ -1,8 +1,7 @@
-import { MongoClient } from 'mongodb'
+import { MongoClient, ServerApiVersion  } from 'mongodb'
 
 let uri = process.env.MONGODB_URI
 let dbName = process.env.MONGODB_DB
-
 let cachedClient = null
 let cachedDb = null
 
@@ -11,6 +10,7 @@ if (!uri) {
     'Please define the MONGODB_URI environment variable inside .env.local'
   )
 }
+
 
 if (!dbName) {
   throw new Error(
@@ -24,11 +24,14 @@ export async function connectToDatabase() {
   }
 
   const client = await MongoClient.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
   })
 
-  const db = await client.db(dbName)
+  const db = await client.db(dbName);
 
   cachedClient = client
   cachedDb = db

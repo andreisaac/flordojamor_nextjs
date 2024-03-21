@@ -1,4 +1,4 @@
-{
+ {
   "name": "flordojamor_n",
   "version": "0.1.0",
   "private": true,
@@ -9,12 +9,30 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.2",
-    "mongodb": "^6.1.0",
+    "mongodb": "^6.3.0",
     "next": "13.5.2",
+    "next-auth": "^4.24.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.68.0"
+  },
+  "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreisaac/flordojamor_nextjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreisaac/flordojamor_nextjs/issues"
+  },
+  "homepage": "https://github.com/andreisaac/flordojamor_nextjs#readme",
+  "devDependencies": {
+    "@types/node": "20.10.5",
+    "@types/react": "18.2.45"
   }
 }

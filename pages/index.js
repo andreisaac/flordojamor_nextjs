@@ -4,25 +4,29 @@ import styles from './index.module.sass'
 import { connectToDatabase } from './util/mongodb'
 
 
-export default function Menu({pratosDia, pratosCarne, pratosPeixe}) {
+const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
   const pDia = JSON.parse(pratosDia);
   const pCarne = JSON.parse(pratosCarne);
   const pPeixe = JSON.parse(pratosPeixe);
-
-  const date = new Date(pDia[0].date);
+  const date = ''
+  if(pDia[0] && pDia[0].date){
+    const date = new Date(pDia[0].date);
+  }
   const formatedDate = (d) => {
-    return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear()
+    if(d instanceof Date) {
+      return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear()
+    }
   }
   return (
     <Layout>
       <div className={styles.menu}>
-        <div className={styles.rowPadding}>
-          <div className={styles.colL4}>
+        <div className='row-padding'>
+          <div className='col l4'>
             <div className={styles.pratosDia}>
               <h2 id="pratosDia">Pratos do Dia:</h2>
-                {pDia ? (
+                {pDia[0] && pDia[0].date && date ? (
                   <div>
-                    <p className={styles.date}> {formatedDate(date)}</p>
+                    <p className={styles.date}> { formatedDate(date) }</p>
                     <table className={styles.table}>
                       <tbody>
                         {typeof pDia[0].pratos == "object" ? pDia[0].pratos.map((item,index) => (
@@ -57,7 +61,7 @@ export default function Menu({pratosDia, pratosCarne, pratosPeixe}) {
             </div>
           </div>
 
-          <div className={styles.colL4}>
+          <div className='col l4'>
             <div className={styles.pratosCarne}>
               <h2>Pratos de Carne:</h2>
                   {!pCarne ?
@@ -65,7 +69,7 @@ export default function Menu({pratosDia, pratosCarne, pratosPeixe}) {
                       <img className={style.loader} src="images/loader.gif"/>
                     </div>
                     :
-                    typeof pCarne[0].pratos == "object" ?
+                    pCarne[0] && typeof pCarne[0].pratos == "object" ?
                     <table className={styles.table}>
                       <tbody>
                         {pCarne[0].pratos.map((item,index) => (
@@ -78,7 +82,7 @@ export default function Menu({pratosDia, pratosCarne, pratosPeixe}) {
             </div>
       		</div>
 
-          <div className={styles.colL4}>
+          <div className='col l4'>
             <div className={styles.pratosPeixe}>
         			<h2>Pratos de Peixe:</h2>
                   {!pPeixe[0]?
@@ -86,7 +90,7 @@ export default function Menu({pratosDia, pratosCarne, pratosPeixe}) {
                       <img className={styles.loader} src="images/loader.gif"/>
                     </div>
                     :
-                    typeof pPeixe[0].pratos == "object" ?
+                    pPeixe[0] && typeof pPeixe[0].pratos == "object" ?
                       <table className={styles.table}>
                         <tbody>
                           {pPeixe[0].pratos.map((item,index) => (
@@ -116,6 +120,7 @@ export default function Menu({pratosDia, pratosCarne, pratosPeixe}) {
   )
 };
 
+export default Menu;
 
 export async function getStaticProps(context) {
   const { db } = await connectToDatabase()
@@ -123,7 +128,6 @@ export async function getStaticProps(context) {
   const pDia = await db.collection('pratosdias').find({}).toArray();
   const pCarne = await db.collection('pratoscarnes').find({}).toArray();
   const pPeixe = await db.collection('pratospeixes').find({}).toArray();
-
   const pratosDia = JSON.stringify(pDia);
   const pratosCarne = JSON.stringify(pCarne);
   const pratosPeixe = JSON.stringify(pPeixe);
