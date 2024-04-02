@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import styles from './index.module.sass';
-import NameInput from '../components/form/NameInput';
-import NumberInput from '../components/form/NumberInput';
+import NameInput from '@/components/form/NameInput';
+import NumberInput from '@/components/form/NumberInput';
 
 
 
