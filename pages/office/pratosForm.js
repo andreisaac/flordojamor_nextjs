@@ -7,7 +7,6 @@ import NumberInput from '../components/form/NumberInput';
 
 const PratosForm = ({pratosDia, pratosCarne, pratosPeixe}) => {
   const url = process.env.URL;
-  console.log(url)
   const pDia = pratosDia;
   const pCarne = pratosCarne;
   const pPeixe = pratosPeixe;
@@ -15,7 +14,6 @@ const PratosForm = ({pratosDia, pratosCarne, pratosPeixe}) => {
   const [pratosDiaInput, setPratosDiaInput] = useState(pDia? pDia.pratos : {});
   const [pratosCarneInput, setPratosCarneInput] = useState(pCarne ? pCarne.pratos : {});
   const [pratosPeixeInput, setPratosPeixeInput] = useState( pPeixe ? pPeixe.pratos : {});
-  const [emailError, setEmailError] = useState(false);
   const [errorDia, setErrorDia] = useState({});
   const [errorCarne, setErrorCarne] = useState({});
   const [errorPeixe, setErrorPeixe] = useState({});
@@ -42,7 +40,6 @@ const PratosForm = ({pratosDia, pratosCarne, pratosPeixe}) => {
 
   const submitDia = async () => {
     setDiaLoading(true);
-    console.log(pratosDiaInput)
     try {
       await fetch(url + '/api/dia', {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(pratosDiaInput)})
       setDiaLoading(false)
