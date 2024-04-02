@@ -1,5 +1,6 @@
 import connectToDatabase from '@/util/mongoosedb'
 import PratosDia from "@/models/dia";
+import { revalidatePath } from 'next/cache'
 
 
 export default async function handler(req,res) {
