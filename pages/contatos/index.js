@@ -29,13 +29,13 @@ export default function Contatos() {
           Sábado aos almoços entre as 12:00h e 15:00h.
             </p>
           </div>
-          <div className="text-center">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.903433479999!2d-9.254101999999994!3d38.72002600000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1ecc6d433de187%3A0x476f70cbab95d339!2sCervejaria+Caf%C3%A9+Flor+Jamor!5e0!3m2!1spt-PT!2spt!4v1432409740985" width="80%" height="400px" frameBorder="0"></iframe>
+          <div className={styles.map}>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.903433479999!2d-9.254101999999994!3d38.72002600000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1ecc6d433de187%3A0x476f70cbab95d339!2sCervejaria+Caf%C3%A9+Flor+Jamor!5e0!3m2!1spt-PT!2spt!4v1432409740985" frameBorder="0"></iframe>
           </div>
 
-          <div className="container">
+          <div className={styles.social}>
             <div id="fb-root"></div>
-            <div className="fb-page" data-href="https://www.facebook.com/restauranteflordojamor/" data-tabs="timeline" data-width="1080" data-height="600" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+            <div className="fb-page" data-href="https://www.facebook.com/restauranteflordojamor/" data-tabs="timeline" data-width="1080" data-height="610" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
               <blockquote cite="https://www.facebook.com/restauranteflordojamor/" className="fb-xfbml-parse-ignore">
                 <a className="link para face" href="https://www.facebook.com/restauranteflordojamor/">Restaurante Flor do Jamor</a>
               </blockquote>

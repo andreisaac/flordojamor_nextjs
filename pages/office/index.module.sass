@@ -1,4 +1,4 @@
-@import '../sass/presets'
+@import '@/sass/presets'
 @media screen and (min-width: $break-large)
 
 @media screen and (max-width: $break-medium)
@@ -15,7 +15,7 @@
   @media screen and (max-width: $break-medium)
     padding: 24px 100px
   @media screen and (max-width: $break-small)
-    padding: 18px 16px
+    padding: 4px 2px
     .inputRow
       div
         padding: 0px!important
@@ -53,7 +53,7 @@
       margin: 12px auto
       .nameInp
         @extend .col
-        @extend .s6
+        @extend .s7
         @extend .m6
         @extend .l6
       .priceInp
@@ -68,7 +68,7 @@
         @extend .l2
       .func
         @extend .col
-        @extend .s2
+        @extend .s1
         @extend .m2
         @extend .l2
         a
@@ -81,6 +81,8 @@
         .clean
           @extend .btn
           @extend .btn-blue
+          @media screen and (max-width: $break-small)
+            display: none
         .del
           @extend .btn
           @extend .btn-red
@@ -114,6 +116,9 @@
     box-shadow: 2px 2px 2px $black
     padding: 12px 72px
   .addLine, .submitInput
+    @media screen and (max-width: $break-small)
+      padding: 6px
+      font-size: 16px
     @extend .btn
     @extend .margin-bottom
     @extend .margin-top
@@ -124,10 +129,14 @@
     @extend .btn-blue
     float: left
     margin-left: 14px
+    @media screen and (max-width: $break-small)
+      margin-left: auto
   .submitInput
     @extend .btn-green
     float: right
     margin-right: 34px
+    @media screen and (max-width: $break-small)
+      margin-right: auto
   .loaderInput
     float: right
     margin-top: 28px

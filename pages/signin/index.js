@@ -3,8 +3,8 @@ import {useState} from 'react';
 import {useRouter} from 'next/router';
 import Layout from '../layout';
 import styles from './index.module.sass';
-import EmailInput from '../components/form/EmailInput';
-import PasswordInput from '../components/form/PasswordInput';
+import EmailInput from '@/components/form/EmailInput';
+import PasswordInput from '@/components/form/PasswordInput';
 import validateRequest from "@/util/validateSession"
 
 const Auth = (props) => {

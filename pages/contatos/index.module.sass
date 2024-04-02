@@ -1,4 +1,4 @@
-@import '../sass/presets'
+@import '@/sass/presets'
 
 .cols6m6l4
   @extend .col
@@ -20,6 +20,7 @@
     padding: 4px
     div
       font-size: 16px!important
+  @extend .row
   font-family: "Roboto Slab"
   background-color: white
   border: 1px solid black
@@ -43,3 +44,21 @@
       background-image: url("../images/background-tittle.jpg")
       i
         margin-right: 12px
+  .map
+    @extend .col
+    @extend .l8
+    @extend .box-shadow
+    border: 1px solid $grey
+    border-radius: 6px
+    padding: 4px
+    iframe
+      width: 100%
+      height: 600px
+      border-radius: 6px
+  .social
+    @extend .col
+    @extend .l4
+    iframe
+      width: 100%
+      height: 650px
+      border-radius: 6px

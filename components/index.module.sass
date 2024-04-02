@@ -63,16 +63,26 @@
   text-align: center
   background-color: $black
   color: white
+  @media screen and (max-width: $break-small)
+    height: 300px
+    bottom: -300px
   h1
     font-size: 40px
     font-family: Pacifico
     text-shadow: 2px 2px black
   .copyright
+    @media screen and (max-width: $break-small)
+      margin-top: 16px
+      text-align: center
     text-align: right
     text-shadow: 2px 2px black
   div
+    @media screen and (max-width: $break-small)
+      text-align: center
     text-align: left
     .btnGrey
+      @media screen and (max-width: $break-small)
+        margin-top: 0px
       @extend .btn
       margin-top: 32px
       color: $grey-dark!important

@@ -9,7 +9,10 @@
         "util/*"
       ],
       "@/components*": [
-        "pages/components/*"
+        "components/*"
+      ],
+      "@/sass*": [
+        "sass/*"
       ]
     },
     "lib": [

@@ -1,4 +1,4 @@
-@import './sass/presets'
+@import '@/sass/presets'
 
 .body
   padding-top: 50px
@@ -16,56 +16,74 @@
 
   
 .menu
+  @media screen and (max-width: $break-medium)
+    margin: 18px 32px
+  @media screen and (max-width: $break-small)
+    margin: 4px 0px
   font-family: "Roboto Slab"
   font-size: 18px
   font-weight: 400
   margin: 64px 128px
   cursor: default
-  .pratosDia, .pratosCarne, .pratosPeixe
-    padding: 18px 2px
-    background-color: white
-    border-radius: 8px
-    border: 1px solid $black
-    box-shadow: 2px 2px 2px $black
-    min-height: 665px
-    text-align: center
-    .date
-      margin: 16px
-    img
-      max-width: 100%
-    .table
-      margin-top: 16px
-      width: 100%
-      text-align: left
-      padding: 4px 12px
-      td
-        padding: 6px 12px
-        border-top: 1px solid $grey
-      td:hover
-        background-color: $grey-pale-2
-      #menuPrice
-        text-align: right
-  h2
-    font-size: 24px
-    font-family: "Merriweather"
-    font-weight: bold
-    text-shadow: 1px 1px 1px $grey-dark
-    border: 1px solid $grey-dark
-    display: inline-block
-    padding: 4px 18px
-    border-radius: 4px
-    box-shadow: 2px 2px 1px $black inset, -1px -1px 1px $black inset
-    background-image: url("./images/background-tittle.jpg")
-  .contacts
-    @extend .row
-    margin-top: 44px
-    div
-      margin-top: 44px
+  .rowPadding
+    @extend .row-padding
+    .divisions
       @extend .col
-      @extend .m6
-      @extend .l6
-  .emptyMenu
-    margin-top: 8px
+      @extend .s12
+      @extend .m12
+      @extend .l4
+      margin: 8px auto
+      @media screen and (max-width: $break-small)
+        margin: 4px
+      .pratosDia, .pratosCarne, .pratosPeixe
+        @media screen and (max-width: $break-small)
+          min-height: auto
+        padding: 18px 2px
+        background-color: white
+        border-radius: 8px
+        border: 1px solid $black
+        box-shadow: 2px 2px 2px $black
+        min-height: 665px
+        text-align: center
+        .date
+          margin: 16px
+        img
+          max-width: 100%
+        .table
+          margin-top: 16px
+          width: 100%
+          text-align: left
+          padding: 4px 12px
+          td
+            padding: 6px 12px
+            border-top: 1px solid $grey
+          td:hover
+            background-color: $grey-pale-2
+          #menuPrice
+            text-align: right
+      h2
+        font-size: 24px
+        font-family: "Merriweather"
+        font-weight: bold
+        text-shadow: 1px 1px 1px $grey-dark
+        border: 1px solid $grey-dark
+        display: inline-block
+        padding: 4px 18px
+        border-radius: 4px
+        box-shadow: 2px 2px 1px $black inset, -1px -1px 1px $black inset
+        background-image: url("./images/background-tittle.jpg")
+      .contacts
+        @extend .row
+        margin-top: 44px
+        div
+          margin-top: 44px
+          @extend .col
+          @extend .s12
+          @extend .m6
+          @extend .l6
+          @media screen and (max-width: $break-small)
+      .emptyMenu
+        margin-top: 8px
 
 .alertInfo
   @media screen and (min-width: $break-large)

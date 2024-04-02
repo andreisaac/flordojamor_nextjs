@@ -1,7 +1,7 @@
 // pages/api/login.ts
 import bcrypt from "bcryptjs";
 import { lucia } from "util/auth";
-import connectToDatabase from "util/mongoosedb";
+import connectToDatabase from "@/util/mongoosedb";
 import {User} from "@/models/user"
 
 import type { NextApiRequest, NextApiResponse } from "next";

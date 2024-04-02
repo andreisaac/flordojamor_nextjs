@@ -32,8 +32,8 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
   return (
     <Layout>
       <div className={styles.menu}>
-        <div className='row-padding'>
-          <div className='col l4'>
+        <div className={styles.rowPadding}>
+          <div className={styles.divisions}>
             <div className={styles.pratosDia}>
               <h2 id="pratosDia">Pratos do Dia:</h2>
                 {pDia && pDia.date && date ? (
@@ -73,7 +73,7 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
             </div>
           </div>
 
-          <div className='col l4'>
+          <div className={styles.divisions}>
             <div className={styles.pratosCarne}>
               <h2>Pratos de Carne:</h2>
                   {!pCarne ?
@@ -94,7 +94,7 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
             </div>
       		</div>
 
-          <div className='col l4'>
+          <div className={styles.divisions}>
             <div className={styles.pratosPeixe}>
         			<h2>Pratos de Peixe:</h2>
                   {!pPeixe?
