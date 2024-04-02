@@ -1,5 +1,5 @@
-import Navbar from '@/components/navbar'
-import Footer from '@/components/footer'
+import Navbar from '@/components/navbar.js'
+import Footer from '@/components/footer.js'
 import styles from './index.module.sass'
 import Script from 'next/script'
 
