@@ -26,7 +26,7 @@ const Navbar = props => {
               <Link href="/" onClick={toggleNav}>Menu</Link >
               <Link href="/contatos" onClick={toggleNav}>Contactos</Link >
             </div> ) : (
-              <a href="/" className={styles.title}>Restaurante Flor do Jamor</a>
+              <Link href="/" className={styles.title}>Restaurante Flor do Jamor</Link>
           )}
         </div>
       </div>

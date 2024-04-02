@@ -1,3 +1,4 @@
+
 const nextConfig = {
   typescript: {
     // !! WARN !!
@@ -11,10 +12,13 @@ const nextConfig = {
     serverComponentsExternalPackages: ["mongoose"] // <-- and this
   },
   // and the following to enable top-level await support for Webpack
-  webpack: (config) => {
-    config.experiments = {
-      topLevelAwait: true
-    };
+  webpack: (config, { isServer }) => {
+    console.log();
+    if(!isServer){
+      config.resolve.fallback = {
+       fs: false,
+     };
+    }
     return config;
   },
 }

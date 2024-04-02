@@ -4,21 +4,17 @@ import styles from "../index.module.sass"
 //props => name(property-name), labelInput(String), defaultValue(defaultValue), data(formData.name), error(formError.name), errorUpdate(method), inputUpdate(method), removeData(boolean)
 
 const NameInput = (props) => {
-  const [value, setValue] = useState("");
-
-  useEffect(()=>{
-    setValue(props.defaultValue)
-  },[props.data])
+  const [value, setValue] = useState(props.defaultValue);
 
   const handleInput = (event) => {
     const val = event.target.value;
     const name = event.target.name;
     const reg = /^[\w\s\u00C0-\u017F\/]{4,40}$/g;
     let arr = [...props.data];
-    arr[props.name].name = val
+    arr[props.index][props.name] = val
     val.match(reg) ?
-      props.errorUpdate(Object.assign(props.error, {[props.name]: false})) :
-      props.errorUpdate(Object.assign(props.error, {[props.name]: "Entre 4 a 40 caracteres."}));
+      props.errorUpdate(Object.assign(props.error, {[props.index]: false})) :
+      props.errorUpdate(Object.assign(props.error, {[props.index]: "Entre 4 a 40 caracteres."}));
     props.inputUpdate(arr);
     setValue(val);
   };

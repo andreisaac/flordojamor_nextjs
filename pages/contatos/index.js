@@ -1,15 +1,13 @@
 import Head from 'next/head'
-import Script from 'next/Script'
+import Script from 'next/script'
 import Layout from '../layout'
 import styles from './index.module.sass'
 
 export default function Contatos() {
   return (
     <>
-      <Head>
-        <Script async defer crossOrigin="anonymous" src="https://connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v6.0&appId=819476981525422&autoLogAppEvents=1"></Script>
-        <Script crossOrigin="anonymous" src="https://kit.fontawesome.com/5b691653ea.js"></Script>
-      </Head>
+      <Script async defer crossOrigin="anonymous" src="https://connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v6.0&appId=819476981525422&autoLogAppEvents=1"></Script>
+      <Script crossOrigin="anonymous" src="https://kit.fontawesome.com/5b691653ea.js"></Script>
       <Layout>
         <div className={styles.contacts}>
 

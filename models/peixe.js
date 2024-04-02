@@ -21,6 +21,6 @@ const pPeixe = new Schema({
   date: { type: Date, default: Date.now }
 });
 
-const PratosPeixe = mongoose.models.PratosPeixe|| mongoose.model('PratosDia', pPeixe);
+const PratosPeixe = mongoose.models.PratosPeixe|| mongoose.model('PratosPeixe', pPeixe);
 
 export default PratosPeixe;

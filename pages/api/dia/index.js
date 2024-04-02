@@ -1,5 +1,5 @@
-import connectToDatabase from '../../util/mongoosedb.js'
-import PratosDia from "../../../models/dia";
+import connectToDatabase from '@/util/mongoosedb'
+import PratosDia from "@/models/dia";
 
 
 export default async function handler(req,res) {
@@ -19,7 +19,7 @@ export default async function handler(req,res) {
     case "POST":
       try {
         const pDia = await PratosDia.findOneAndUpdate({},{date: new Date(), pratos: req.body},{upsert: true});
-        console.log('pDia:' + pDia);
+        await res.revalidate('/');
         res.status(201).json({ success: true, data: pDia });
       } catch (error) {
         console.log(error);

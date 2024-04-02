@@ -1,5 +1,5 @@
-import connectToDatabase from '../../util/mongoosedb.js'
-import PratosPeixe from "../../../models/peixe";
+import connectToDatabase from '@/util/mongoosedb'
+import PratosPeixe from "@/models/peixe";
 
 
 export default async function handler(req,res) {
@@ -19,6 +19,7 @@ export default async function handler(req,res) {
     case "POST":
       try {
         const pPeixe = await PratosPeixe.findOneAndUpdate({},{date: new Date(), pratos: req.body},{upsert: true});
+        await res.revalidate('/');
         res.status(201).json({ success: true, data: pPeixe });
       } catch (error) {
         console.log(error);
@@ -31,3 +32,4 @@ export default async function handler(req,res) {
   }
 
 }
+

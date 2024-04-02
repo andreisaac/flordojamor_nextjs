@@ -1,15 +1,14 @@
 "use client";
-import Image from 'next/image';
-import Layout from '../layout';
 import {useState} from 'react';
+import {useRouter} from 'next/router';
+import Layout from '../layout';
 import styles from './index.module.sass';
 import EmailInput from '../components/form/EmailInput';
 import PasswordInput from '../components/form/PasswordInput';
-import { useFormState, useFormStatus } from 'react-dom';
-import { signIn, getCsrfToken, getProviders } from 'next-auth/react'
+import validateRequest from "@/util/validateSession"
 
-
-const Auth = (props, csrfToken, providers) => {
+const Auth = (props) => {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
@@ -19,13 +18,26 @@ const Auth = (props, csrfToken, providers) => {
     return (!email || !password) || (emailError||passwordError)
   }
 
-  const sign = ()=> {
-    signIn("credentials", {username: email, password: password, callbackUrl: 'http://localhost:3000/office'})
+  const sign = async(formElement, formTarget)=> {
+    formElement ? formElement.preventDefault() : null;
+    const data = {email: email, password: password};
+    const response = await fetch("/api/signin", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    if(response.ok) {
+      router.push("/office");
+    }
   }
+
 
   const keyDown = (event) => {
     if(event.key === 'Enter' && !disableSubmit()) {
-      sign();
+      sign(null, event.target);
     }
   }
 
@@ -34,13 +46,13 @@ const Auth = (props, csrfToken, providers) => {
     <main className={styles.auth}>
         <div className={styles.container}>
           <h3>Login:</h3>
-          <form onKeyPress={keyDown}>
+          <form onKeyDown={keyDown} onSubmit={sign}>
 
             <EmailInput name="email" label="E-mail" placeholder="email@email.com.." value={email} inputUpdate={setEmail} error={emailError} errorUpdate={setEmailError}/>
 
             <PasswordInput name="password" label="Palavra-passe:" value={password} inputUpdate={setPassword} error={passwordError} errorUpdate={setPasswordError}/>
 
-            <a className={styles.btnGreen} disabled={disableSubmit()} onClick={()=> sign()}>Entrar</a>
+            <button className={styles.btnGreen} disabled={disableSubmit()}>Entrar</button>
 
           </form>
 
@@ -57,12 +69,17 @@ const Auth = (props, csrfToken, providers) => {
 export default Auth;
 
 export async function getServerSideProps(context) {
-  const providers = await getProviders()
-  const csrfToken = await getCsrfToken(context)
-  return {
-    props: {
-      providers,
-      csrfToken
-    },
-  }
+	const user = await validateRequest(context.req, context.res);
+
+	if (user) {
+		return {
+			redirect: {
+				destination: "/office",
+				permanent: false
+			}
+		};
+	}
+
+  return {props: {user}};
+
 }

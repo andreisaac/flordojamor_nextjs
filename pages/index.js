@@ -1,22 +1,34 @@
-import Image from 'next/image'
-import Layout from './layout'
-import styles from './index.module.sass'
-import { connectToDatabase } from './util/mongodb'
-
+import Image from 'next/image';
+import Layout from './layout';
+import styles from './index.module.sass';
+import {useRouter} from "next/router";
+import connectToDatabase from '@/util/mongoosedb'
+import PDia from "@/models/dia";
+import PCarne from "@/models/carne";
+import PPeixe from "@/models/peixe";
 
 const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
+  
+  const router = useRouter()
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
   const pDia = JSON.parse(pratosDia);
   const pCarne = JSON.parse(pratosCarne);
   const pPeixe = JSON.parse(pratosPeixe);
-  const date = ''
-  if(pDia[0] && pDia[0].date){
+ 
+  const date = '';
+
+  if(pDia && pDia[0] && pDia[0].date){
     const date = new Date(pDia[0].date);
   }
+
   const formatedDate = (d) => {
     if(d instanceof Date) {
       return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear()
     }
   }
+
   return (
     <Layout>
       <div className={styles.menu}>
@@ -24,12 +36,12 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
           <div className='col l4'>
             <div className={styles.pratosDia}>
               <h2 id="pratosDia">Pratos do Dia:</h2>
-                {pDia[0] && pDia[0].date && date ? (
+                {pDia && pDia.date && date ? (
                   <div>
                     <p className={styles.date}> { formatedDate(date) }</p>
                     <table className={styles.table}>
                       <tbody>
-                        {typeof pDia[0].pratos == "object" ? pDia[0].pratos.map((item,index) => (
+                        {pDia && typeof pDia.pratos == "object" ? pDia.pratos.map((item,index) => (
                           <tr key={index} className={item.over ? styles.overMenu : ""}>
                             <td id="menuName">{item.name}</td>
                             <td id="menuPrice">{item.price ? item.price.toFixed(2) : ""} € {item.price2 && item.price2 !== null ? " / " + (item.price2.toFixed(2)) +"€": ""}</td>
@@ -66,13 +78,13 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
               <h2>Pratos de Carne:</h2>
                   {!pCarne ?
                     <div>
-                      <img className={style.loader} src="images/loader.gif"/>
+                      <Image alt="loader" className={styles.loader} src="images/loader.gif"/>
                     </div>
                     :
-                    pCarne[0] && typeof pCarne[0].pratos == "object" ?
+                    pCarne && typeof pCarne.pratos == "object" ?
                     <table className={styles.table}>
                       <tbody>
-                        {pCarne[0].pratos.map((item,index) => (
+                        {pCarne.pratos.map((item,index) => (
                               <tr key={index} className={item.over ? styles.overMenu : ""}>
                                 <td id="menuName">{item.name}</td>
                                 <td id="menuPrice">{item.price.toFixed(2)} €{item.price2 && item.price2 !== null ? " / " + (item.price2.toFixed(2)) +"€": ""}</td>
@@ -85,15 +97,15 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
           <div className='col l4'>
             <div className={styles.pratosPeixe}>
         			<h2>Pratos de Peixe:</h2>
-                  {!pPeixe[0]?
+                  {!pPeixe?
                     <div>
-                      <img className={styles.loader} src="images/loader.gif"/>
+                      <Image alt="loader" className={styles.loader} src="images/loader.gif"/>
                     </div>
                     :
-                    pPeixe[0] && typeof pPeixe[0].pratos == "object" ?
+                    pPeixe && typeof pPeixe.pratos == "object" ?
                       <table className={styles.table}>
                         <tbody>
-                          {pPeixe[0].pratos.map((item,index) => (
+                          {pPeixe.pratos.map((item,index) => (
                           <tr key={index} className={item.over ? styles.overMenu : ""}>
                             <td id="menuName">{item.name}</td>
                             <td id="menuPrice">{item.price.toFixed(2)} €{item.price2 && item.price2 !== null ? " / " + (item.price2.toFixed(2)) +"€": ""}</td>
@@ -123,16 +135,18 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
 export default Menu;
 
 export async function getStaticProps(context) {
-  const { db } = await connectToDatabase()
+  
+  const db = await connectToDatabase();
+  const dia = await PDia.find({});
+  const carne = await PCarne.find({});
+  const peixe = await PPeixe.find({});
 
-  const pDia = await db.collection('pratosdias').find({}).toArray();
-  const pCarne = await db.collection('pratoscarnes').find({}).toArray();
-  const pPeixe = await db.collection('pratospeixes').find({}).toArray();
-  const pratosDia = JSON.stringify(pDia);
-  const pratosCarne = JSON.stringify(pCarne);
-  const pratosPeixe = JSON.stringify(pPeixe);
+  const pratosDia = JSON.stringify(dia[0]);
+  const pratosCarne = JSON.stringify(carne[0]);
+  const pratosPeixe = JSON.stringify(peixe[0]);
 
   return {
     props: { pratosDia, pratosCarne, pratosPeixe },
   }
 }
+
