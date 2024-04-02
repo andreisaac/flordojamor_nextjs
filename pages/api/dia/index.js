@@ -19,7 +19,8 @@ export default async function handler(req,res) {
     case "POST":
       try {
         const pDia = await PratosDia.findOneAndUpdate({},{date: new Date(), pratos: req.body},{upsert: true});
-        await res.revalidate('/');
+        revalidatePath("/");
+        revalidatePath("/office");
         res.status(201).json({ success: true, data: pDia });
       } catch (error) {
         console.log(error);
