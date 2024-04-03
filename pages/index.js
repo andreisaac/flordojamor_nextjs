@@ -22,10 +22,14 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
   if(pDia && pDia.date){
     date = new Date(pDia.date);
   }
+
+  const pad = function (d) {
+    return (d < 10) ? '0' + d.toString() : d.toString();
+  }
  
   const formatedDate = (d) => {
     if(d instanceof Date) {
-      return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear()
+      return pad(d.getDate()) + '-' + pad((d.getMonth()+1)) + '-' + d.getFullYear()
     }
   }
 
