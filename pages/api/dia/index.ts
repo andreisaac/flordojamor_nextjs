@@ -1,9 +1,10 @@
 import connectToDatabase from '@/util/mongoosedb'
 import PratosDia from "@/models/dia";
 import { revalidatePath } from 'next/cache'
+import type{ NextApiRequest, NextApiResponse  } from 'next'
 
-
-export default async function handler(req,res) {
+export const dynamic = "force-dynamic";
+export default async function handler(req: NextApiRequest,res: NextApiResponse ) {
   const { method } = req;
 
   const db = await connectToDatabase();
@@ -20,11 +21,9 @@ export default async function handler(req,res) {
     case "POST":
       try {
         const pDia = await PratosDia.findOneAndUpdate({},{date: new Date(), pratos: req.body},{upsert: true});
-        revalidatePath("/");
-        revalidatePath("/office");
-        res.status(201).json({ success: true, data: pDia });
+        await res.revalidate("/");
+        res.status(201).json({ success: true, data: pDia, revalidate: true });
       } catch (error) {
-        console.log(error);
         res.status(400).json({ success: false, error: error });
       }
       break;

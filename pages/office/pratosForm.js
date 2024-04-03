@@ -41,7 +41,7 @@ const PratosForm = ({pratosDia, pratosCarne, pratosPeixe}) => {
   const submitDia = async () => {
     setDiaLoading(true);
     try {
-      await fetch(url + '/api/dia', {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(pratosDiaInput)})
+      await fetch('/api/dia', {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(pratosDiaInput)})
       setDiaLoading(false)
     } catch(error) {
       setDiaLoading(false)
@@ -52,7 +52,7 @@ const PratosForm = ({pratosDia, pratosCarne, pratosPeixe}) => {
   const submitCarne = async () => {
     setCarneLoading(true);
     try {
-      await fetch(url + '/api/carne', {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(pratosCarneInput)})
+      await fetch('/api/carne', {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(pratosCarneInput)})
       setCarneLoading(false)
     } catch(error) {
       setCarneLoading(false)
@@ -63,7 +63,7 @@ const PratosForm = ({pratosDia, pratosCarne, pratosPeixe}) => {
   const submitPeixe = async () => {
     setPeixeLoading(true);
     try {
-      await fetch(url + '/api/peixe', {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(pratosPeixeInput)})
+      await fetch('/api/peixe', {method: "POST", headers: {'Content-Type': 'application/json'}, body: JSON.stringify(pratosPeixeInput)})
       setPeixeLoading(false)
     } catch(error) {
       setPeixeLoading(false)

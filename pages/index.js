@@ -17,12 +17,12 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
   const pCarne = JSON.parse(pratosCarne);
   const pPeixe = JSON.parse(pratosPeixe);
  
-  const date = '';
+  let date = '';
 
-  if(pDia && pDia[0] && pDia[0].date){
-    const date = new Date(pDia[0].date);
+  if(pDia && pDia.date){
+    date = new Date(pDia.date);
   }
-
+ 
   const formatedDate = (d) => {
     if(d instanceof Date) {
       return d.getDate() + '-' + (d.getMonth()+1) + '-' + d.getFullYear()
@@ -41,7 +41,7 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
                     <p className={styles.date}> { formatedDate(date) }</p>
                     <table className={styles.table}>
                       <tbody>
-                        {pDia && typeof pDia.pratos == "object" ? pDia.pratos.map((item,index) => (
+                        {pDia && typeof Array.isArray(pDia.pratos) ? pDia.pratos.map((item,index) => (
                           <tr key={index} className={item.over ? styles.overMenu : ""}>
                             <td id="menuName">{item.name}</td>
                             <td id="menuPrice">{item.price ? item.price.toFixed(2) : ""} € {item.price2 && item.price2 !== null ? " / " + (item.price2.toFixed(2)) +"€": ""}</td>
