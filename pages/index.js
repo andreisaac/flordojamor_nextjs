@@ -6,6 +6,7 @@ import connectToDatabase from '@/util/mongoosedb'
 import PDia from "@/models/dia";
 import PCarne from "@/models/carne";
 import PPeixe from "@/models/peixe";
+export const fetchCache = 'force-no-store';
 
 const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
   
