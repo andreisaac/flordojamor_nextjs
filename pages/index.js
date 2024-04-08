@@ -21,7 +21,11 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
   let date = '';
 
   if(pDia && pDia.date){
-    date = new Date(pDia.date);
+    const d = new Date().getDate();
+    const pd = new Date(pDia.date).getDate();
+    if(d === pd) {
+      date = new Date(pDia.date);
+    }
   }
 
   const pad = function (d) {
