@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
         <Script src="https://kit.fontawesome.com/5b691653ea.js" crossOrigin="anonymous"></Script>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <Navbar/>
-        <Image className={styles.background} src={background} alt="Picture of the background" sizes="100vw"/>
+        <Image className={styles.background} src={background} alt="Picture of the background" sizes="100vw" loading="lazy"/>
         <div>
           {children}
         </div>
