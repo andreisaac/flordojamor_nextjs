@@ -1,13 +1,22 @@
 @import presets
 
-@mixin google-font($family)
-  @import url("https://fonts.googleapis.com/css?family=#{$family}")
+@font-face {
+    // This is parsed as a normal function call that takes an arithmetic
+    // expression.
+    src: url(./fonts/Merriweather/Merriweather-Regular.ttf) format("ttf");
 
+    font-family: "Merriweather";
+    font-weight: 300;
+}
 
-@include google-font("Merriweather")
-@include google-font("Roboto Slab")
-@include google-font("Pacifico")
+@font-face {
+  // This is parsed as a normal function call that takes an arithmetic
+  // expression.
+  src: url(./fonts/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf) format("ttf");
 
+  font-family: "Roboto Slab";
+  font-weight: 300;
+}
 
 html
   scroll-behavior: smooth
