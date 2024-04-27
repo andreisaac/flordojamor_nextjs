@@ -1,5 +1,9 @@
 
 const nextConfig = {
+  i18n: {
+    locales: ["en", "pt"],
+    defaultLocale: "pt", // default lang pt
+  },
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if

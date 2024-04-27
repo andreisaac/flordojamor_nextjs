@@ -1,6 +1,7 @@
 "use client";
 import {useState} from 'react';
 import {useRouter} from 'next/router';
+import Head from 'next/head';
 import Layout from '../layout';
 import styles from './index.module.sass';
 import EmailInput from '@/components/form/EmailInput';
@@ -43,6 +44,9 @@ const Auth = (props) => {
 
   return (
     <Layout>
+    <Head>
+        <title>Login</title>
+    </Head>
     <main className={styles.auth}>
         <div className={styles.container}>
           <h3>Login:</h3>

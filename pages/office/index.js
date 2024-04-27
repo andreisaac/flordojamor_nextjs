@@ -3,6 +3,7 @@ import PratosForm from './pratosForm';
 import validateRequest from "@/util/validateSession";
 import connectToDatabase from "@/util/mongoosedb";
 import { useRouter} from "next/router";
+import Head from "next/head";
 import PDia from "@/models/dia";
 import PCarne from "@/models/carne";
 import PPeixe from "@/models/peixe";
@@ -21,6 +22,9 @@ const Office = ({pratosDia, pratosCarne, pratosPeixe}) => {
 
   return (
     <Layout>
+      <Head>
+        <title>Backoffice</title>
+      </Head>
       <PratosForm pratosDia={pDia} pratosCarne={pCarne} pratosPeixe={pPeixe}>
       </PratosForm>
     </Layout>

@@ -7,13 +7,23 @@
   min-height: 100vh
   color: $black
   position: relative
-  @media screen and (min-width: $break-large)
-    background-image: url("./images/background.jpg")
-  @media screen and (max-width: $break-medium)
-    background-image: url("./images/background_1080.jpg")
-  @media screen and (max-width: $break-small)
-    background-image: url("./images/background_750.jpg")
+.background
+  width: 100%
+  height: auto
+  position: fixed
+  overflow: hidden 
+  z-index: -1
 
+.h2Back
+  width: 100%
+  height: 40px
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 1
+  border: 1px solid $grey-dark
+  border-radius: 4px
+  box-shadow: 2px 2px 1px $black inset, -1px -1px 1px $black inset
   
 .menu
   @media screen and (max-width: $break-medium)
@@ -62,17 +72,16 @@
           #menuPrice
             text-align: right
       h2
+        position: relative
         font-size: 24px
         font-family: "Merriweather"
         font-weight: bold
         text-shadow: 1px 1px 1px $grey-dark
-        border: 1px solid $grey-dark
         display: inline-block
         padding: 4px 18px
-        border-radius: 4px
-        box-shadow: 2px 2px 1px $black inset, -1px -1px 1px $black inset
-        background-image: url("./images/background-tittle.jpg")
-      .contacts
+        span
+          position: relative
+          z-index: 2
         @extend .row
         margin-top: 44px
         div

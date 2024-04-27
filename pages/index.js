@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Head from 'next/head';
 import Layout from './layout';
 import styles from './index.module.sass';
 import {useRouter} from "next/router";
@@ -6,6 +7,7 @@ import connectToDatabase from '@/util/mongoosedb'
 import PDia from "@/models/dia";
 import PCarne from "@/models/carne";
 import PPeixe from "@/models/peixe";
+import h2Back from "./images/background-tittle.jpg";
 export const fetchCache = 'force-no-store';
 
 const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
@@ -40,11 +42,17 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
 
   return (
     <Layout>
+      <Head>
+        <title>Menu</title>
+      </Head>
       <div className={styles.menu}>
         <div className={styles.rowPadding}>
           <div className={styles.divisions}>
             <div className={styles.pratosDia}>
-              <h2 id="pratosDia">Pratos do Dia:</h2>
+              <h2 id="pratosDia">
+                <Image src={h2Back} alt="Background do titulo" className={styles.h2Back}/>
+                <span>Pratos do Dia:</span>
+                </h2>
                 {pDia && pDia.date && date ? (
                   <div>
                     <p className={styles.date}> { formatedDate(date) }</p>
@@ -84,7 +92,10 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
 
           <div className={styles.divisions}>
             <div className={styles.pratosCarne}>
-              <h2>Pratos de Carne:</h2>
+              <h2>
+                <Image src={h2Back} alt="Background do titulo" className={styles.h2Back}/>
+                <span>Pratos de Carne:</span>
+              </h2>
                   {!pCarne ?
                     <div>
                       <Image alt="loader" className={styles.loader} src="images/loader.gif"/>
@@ -105,7 +116,10 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
 
           <div className={styles.divisions}>
             <div className={styles.pratosPeixe}>
-        			<h2>Pratos de Peixe:</h2>
+        			<h2>
+                <Image src={h2Back} alt="Background do titulo" className={styles.h2Back}/>
+                <span>Pratos do Peixe:</span>
+              </h2>
                   {!pPeixe?
                     <div>
                       <Image alt="loader" className={styles.loader} src="images/loader.gif"/>
