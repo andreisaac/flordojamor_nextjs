@@ -37,7 +37,9 @@
   },
   "homepage": "https://github.com/andreisaac/flordojamor_nextjs#readme",
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^6.0.0",
     "@types/node": "20.10.5",
-    "@types/react": "18.2.45"
+    "@types/react": "18.2.45",
+    "postcss": "^8.4.38"
   }
 }

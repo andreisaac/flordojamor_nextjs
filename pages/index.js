@@ -10,6 +10,11 @@ import PPeixe from "@/models/peixe";
 import h2Back from "./images/background-tittle.jpg";
 export const fetchCache = 'force-no-store';
 
+export const metadata = {
+  title: 'Menu',
+  description: 'Nesta página pode consultar o menu do dia do Restaurante Flor do Jamor, em baixo tem os contatos telefónicos assim como a morada. Pratos do dia atualizados diáriamente por volta das 10h30.',
+}
+
 const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
   
   const router = useRouter()

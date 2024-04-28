@@ -20,7 +20,7 @@ const Navbar = props => {
           <Link href="/contatos" className={pathname == "/contatos" ? styles.active : ""}>Contatos</Link>
         </div>
         <div className={styles.smallSreen}>
-          <a className={styles.bar} onClick={toggleNav}>&#9776;</a>
+          <button className={styles.bar} onClick={toggleNav}>&#9776;</button>
           {nav ? (
             <div className={styles.links}>
               <Link href="/" onClick={toggleNav}>Menu</Link >

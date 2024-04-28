@@ -3,6 +3,11 @@ import Script from 'next/script'
 import Layout from '../layout'
 import styles from './index.module.sass'
 
+export const metadata = {
+  title: 'Contatos',
+  description: 'Nesta página pode consultar os contatos telefónicos, bem como a nossa localização pelo google maps. Também tem a nossa página de facebook.',
+}
+
 export default function Contatos() {
   return (
     <>
