@@ -12,7 +12,6 @@ export default function Contatos() {
   return (
     <>
       <Script async defer crossOrigin="anonymous" src="https://connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v6.0&appId=819476981525422&autoLogAppEvents=1"></Script>
-      <Script crossOrigin="anonymous" src="https://kit.fontawesome.com/5b691653ea.js"></Script>
       <Head>
         <title>Contatos</title>
       </Head>
@@ -20,17 +19,17 @@ export default function Contatos() {
         <div className={styles.contacts}>
 
           <div className={styles.cols6m6l4}>
-            <h2><i className="fa fa-home"></i> Morada:</h2>
+            <h2>Morada:</h2>
             <p>R. Cesário Verde 41 F,<br/>
             2790-468 Queijas
           </p></div>
           <div className={styles.cols6m6l4}>
-            <h2><i className="fa fa-phone"></i> Telefone:</h2>
+            <h2>Telefone:</h2>
               <p><a href="tel: +351214184742">214 184 742</a></p>
               <p><a href="tel: +351925333652">925 333 652</a></p>
           </div>
           <div className={styles.colL4}>
-            <h2><i className="fa fa-clock"></i> Horário: </h2>
+            <h2>Horário: </h2>
             <p>De segunda-feira a sexta-feira.<br/>
             Almoços entre as 12:00h e 15:00h.<br/>
             Jantares entre as 19:00h e 21:45h.<br/>
