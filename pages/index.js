@@ -55,7 +55,7 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
           <div className={styles.divisions}>
             <div className={styles.pratosDia}>
               <h2 id="pratosDia">
-                <Image src={h2Back} alt="Background do titulo" className={styles.h2Back}  loading='lazy'/>
+                <Image src={h2Back} alt="Background do titulo" className={styles.h2Back} priority={true}/>
                 <span>Pratos do Dia:</span>
                 </h2>
                 {pDia && pDia.date && date ? (
@@ -98,7 +98,7 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
           <div className={styles.divisions}>
             <div className={styles.pratosCarne}>
               <h2>
-                <Image src={h2Back} alt="Background do titulo" className={styles.h2Back}  loading='lazy'/>
+                <Image src={h2Back} alt="Background do titulo" className={styles.h2Back} priority={true}/>
                 <span>Pratos de Carne:</span>
               </h2>
                   {!pCarne ?
@@ -122,7 +122,7 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
           <div className={styles.divisions}>
             <div className={styles.pratosPeixe}>
         			<h2>
-                <Image src={h2Back} alt="Background do titulo" className={styles.h2Back}  loading='lazy'/>
+                <Image src={h2Back} alt="Background do titulo" className={styles.h2Back} priority={true}/>
                 <span>Pratos do Peixe:</span>
               </h2>
                   {!pPeixe?

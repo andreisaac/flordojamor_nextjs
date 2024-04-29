@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import Script from 'next/script'
+import Image from 'next/image'
 import Layout from '../layout'
 import styles from './index.module.sass'
+import h2Back from "../images/background-tittle.jpg";
 
 export const metadata = {
   title: 'Contatos',
@@ -19,17 +21,26 @@ export default function Contatos() {
         <div className={styles.contacts}>
 
           <div className={styles.cols6m6l4}>
-            <h2>Morada:</h2>
+            <h2>
+              <Image src={h2Back} alt="Background do titulo" className={styles.h2Back} priority={true}/>
+              <span>Morada:</span>
+            </h2>
             <p>R. Cesário Verde 41 F,<br/>
             2790-468 Queijas
           </p></div>
           <div className={styles.cols6m6l4}>
-            <h2>Telefone:</h2>
+            <h2>
+              <Image src={h2Back} alt="Background do titulo" className={styles.h2Back} priority={true}/>
+              <span>Telefone:</span>
+            </h2>
               <p><a href="tel: +351214184742">214 184 742</a></p>
               <p><a href="tel: +351925333652">925 333 652</a></p>
           </div>
           <div className={styles.colL4}>
-            <h2>Horário: </h2>
+            <h2>
+              <Image src={h2Back} alt="Background do titulo" className={styles.h2Back} priority={true}/>
+              <span>Horário:</span>
+            </h2>
             <p>De segunda-feira a sexta-feira.<br/>
             Almoços entre as 12:00h e 15:00h.<br/>
             Jantares entre as 19:00h e 21:45h.<br/>
