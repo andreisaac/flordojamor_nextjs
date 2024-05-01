@@ -2,7 +2,8 @@
 const nextConfig = {
   i18n: {
     locales: ["en", "pt"],
-    defaultLocale: "pt", // default lang pt
+    defaultLocale: "pt-PT", // default lang pt
+    localeDetection: false
   },
   typescript: {
     // !! WARN !!

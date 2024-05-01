@@ -10,10 +10,6 @@ import PPeixe from "@/models/peixe";
 import h2Back from "./images/background-tittle.jpg";
 export const fetchCache = 'force-no-store';
 
-export const metadata = {
-  title: 'Menu',
-  description: 'Nesta página pode consultar o menu do dia do Restaurante Flor do Jamor, em baixo tem os contatos telefónicos assim como a morada. Pratos do dia atualizados diáriamente por volta das 10h30',
-}
 
 const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
   
@@ -49,6 +45,7 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
     <Layout>
       <Head>
         <title>Menu</title>
+        <meta name="description" content='Nesta página pode consultar o menu do dia do Restaurante Flor do Jamor, em baixo tem os contatos telefónicos assim como a morada. Pratos do dia atualizados diáriamente por volta das 10h30'/>
       </Head>
       <div className={styles.menu}>
         <div className={styles.rowPadding}>
@@ -83,13 +80,16 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
                 <br/>
 
                 <div className={styles.contacts}>
-                <h2>Contactos:</h2>
+                <h2>
+                <Image src={h2Back} alt="Background do titulo" className={styles.h2Back} priority={true}/>
+                <span>Contactos:</span>
+                </h2>
                   <br/>
                   <div>
-                    <p><a href="tel: +351214184742">214 184 742</a></p>
+                    <p><a className={styles.telink} href="tel: +351214184742">214 184 742</a></p>
                   </div>
                   <div>
-                      <p><a href="tel: +351925333652">925 333 652</a></p>
+                    <p><a className={styles.telink} href="tel: +351925333652">925 333 652</a></p>
                   </div>
                 </div>
             </div>

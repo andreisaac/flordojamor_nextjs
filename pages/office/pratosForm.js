@@ -1,7 +1,10 @@
 import {useState} from 'react';
+import Image from 'next/image';
 import styles from './index.module.sass';
 import NameInput from '@/components/form/NameInput';
 import NumberInput from '@/components/form/NumberInput';
+import CircleCross from "../images/cross-circle.svg";
+import Eraser from "../images/eraser.svg";
 
 
 
@@ -99,8 +102,8 @@ const PratosForm = ({pratosDia, pratosCarne, pratosPeixe}) => {
                       <NumberInput index={index} menu="dia" defaultValue={item.price2||""} name="price2" placeholder="13" data={pratosDiaInput||""} error={errorDia} inputUpdate={setPratosDiaInput} errorUpdate={setErrorDia}/>
                     </div>
                     <div className={styles.func}>
-                      <a  onClick={null} className={styles.clean}><i className="fa fa-eraser"/></a>
-                      <a  onClick={()=> deleteLine(pratosDiaInput, setPratosDiaInput, index)} className={styles.del}><i className="fa fa-times"/></a>
+                      <a  onClick={null} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="svg logo"/></a>
+                      <a  onClick={()=> deleteLine(pratosDiaInput, setPratosDiaInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="svg logo"/></a>
                     </div>
                   </div>
                 )) : null}
@@ -139,8 +142,8 @@ const PratosForm = ({pratosDia, pratosCarne, pratosPeixe}) => {
                       <NumberInput index={index} menu="carne" defaultValue={item.price2||""} name="price2" placeholder="13" data={pratosCarneInput||""} error={errorCarne} inputUpdate={setPratosCarneInput} errorUpdate={setErrorCarne}/>
                     </div>
                     <div className={styles.func}>
-                      <a  onClick={null} className={styles.clean}><i className="fa fa-eraser"/></a>
-                      <a  onClick={()=> deleteLine(pratosCarneInput, setPratosCarneInput, index)} className={styles.del}><i className="fa fa-times"/></a>
+                    <a  onClick={null} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="svg logo"/></a>
+                      <a  onClick={()=> deleteLine(pratosDiaInput, setPratosDiaInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="svg logo"/></a>
                     </div>
                   </div>
                 )) : null}
@@ -179,8 +182,8 @@ const PratosForm = ({pratosDia, pratosCarne, pratosPeixe}) => {
                       <NumberInput index={index} menu="peixe" defaultValue={item.price2||""} name="price2" placeholder="13" data={pratosPeixeInput||""} error={errorPeixe} inputUpdate={setPratosPeixeInput} errorUpdate={setErrorPeixe}/>
                     </div>
                     <div className={styles.func}>
-                      <a  onClick={null} className={styles.clean}><i className="fa fa-eraser"/></a>
-                      <a  onClick={()=> deleteLine(pratosPeixeInput, setPratosPeixeInput, index)} className={styles.del}><i className="fa fa-times"/></a>
+                      <a  onClick={null} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="svg logo"/></a>
+                      <a  onClick={()=> deleteLine(pratosDiaInput, setPratosDiaInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="svg logo"/></a>
                     </div>
                   </div>
                 )) : null}

@@ -16,6 +16,7 @@ export default function Contatos() {
       <Script async defer crossOrigin="anonymous" src="https://connect.facebook.net/pt_PT/sdk.js#xfbml=1&version=v6.0&appId=819476981525422&autoLogAppEvents=1"></Script>
       <Head>
         <title>Contatos</title>
+        <meta name="description" content='Nesta página pode consultar os contatos telefónicos, bem como a nossa localização pelo google maps. Também tem a nossa página de facebook.'/>
       </Head>
       <Layout>
         <div className={styles.contacts}>
