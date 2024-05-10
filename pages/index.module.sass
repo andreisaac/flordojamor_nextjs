@@ -55,7 +55,6 @@
           min-height: auto
         padding: 18px 2px
         background-color: white
-        border-radius: 8px
         border: 1px solid $black
         box-shadow: 2px 2px 2px $black
         min-height: 665px
@@ -100,19 +99,22 @@
         margin-top: 8px
 
 .alertInfo
-  @media screen and (min-width: $break-large)
-    margin: 14px 128px
   @media screen and (max-width: $break-medium)
     font-size: 18px
+    margin: 14px 6px 14px 12px
   @media screen and (max-width: $break-small)
     font-size: 16px
   font-size: 24px
-  background-color: #ffcc99
+  background-color: #ffffff
+  color: #240303
+  font-weight: 600
   border: 1px solid $grey-dark
-  border-radius: 5px
   box-shadow: 2px 2px 2px black
-  margin: 14px 16px
+  margin: 14px 6px
   padding: 12px 18px
+  strong
+    font-size: 34px
+    margin-right: 18px
 
 .alertInfo.green
   background-color: $green

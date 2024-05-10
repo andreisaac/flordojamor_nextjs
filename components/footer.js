@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className={styles.footer}>
       <h1>Obrigado, volte sempre!</h1>
       <div><Link href="/signin" className={styles.btnGrey}>Office</Link></div>
-      <div className={styles.copyright}>Copyright @ Restaurante Flor do Jamor 2020 - {new Date().getFullYear()}</div>
+      <div className={styles.copyright}>Copyright @ Restaurante Flor do Jamor {new Date().getFullYear()}</div>
     </footer>
   );
 };
