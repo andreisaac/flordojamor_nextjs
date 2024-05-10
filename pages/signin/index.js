@@ -14,6 +14,7 @@ const Auth = (props) => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
+  const [formError, setFormError] = useState(false);
 
   const disableSubmit = () => {
     return (!email || !password) || (emailError||passwordError)
@@ -32,6 +33,8 @@ const Auth = (props) => {
 
     if(response.ok) {
       router.push("/office");
+    } else {
+      setFormError("Email ou password errado.")
     }
   }
 
@@ -55,15 +58,17 @@ const Auth = (props) => {
             <EmailInput name="email" label="E-mail" placeholder="email@email.com.." value={email} inputUpdate={setEmail} error={emailError} errorUpdate={setEmailError}/>
 
             <PasswordInput name="password" label="Palavra-passe:" value={password} inputUpdate={setPassword} error={passwordError} errorUpdate={setPasswordError}/>
+            
+            {formError  ? (
+            <div className={styles.inputErrorAlert}>Email ou password errado.</div>
+          ) : null}
 
             <button className={styles.btnGreen} disabled={disableSubmit()}>Entrar</button>
 
           </form>
 
 
-          {false  ? (
-            <div className="input-error-alert">{user.error}</div>
-          ) : null}
+          
         </div>
 
     </main>
