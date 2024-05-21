@@ -38,6 +38,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	const hashedPassword : string = await bcrypt.hash(password, salt);
 	const user = await User.findOneAndUpdate({email: req.body.email});
 
+	console.log("New password: " + await bcrypt.hash("Admin1515", salt));
+	
 
 
 	const passwordIsValid : boolean = await bcrypt.compare(
@@ -45,8 +47,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		user.hashedPassword
 	);
 
-	console.log(hashedPassword);
-	console.log(passwordIsValid);
 
 
 	if (!user) {
