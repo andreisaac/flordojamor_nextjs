@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import Image from 'next/image';
+import { v4 as uuidv4 } from 'uuid';
 import styles from './index.module.sass';
 import NameInput from '@/components/form/NameInput';
 import NumberInput from '@/components/form/NumberInput';
@@ -24,11 +25,11 @@ const PratosForm = ({pratosDia, pratosCarne, pratosPeixe}) => {
   const [carneLoading, setCarneLoading] = useState(false);
   const [peixeLoading, setPeixeLoading] = useState(false);
 
+  const emptyObj = {_id: uuidv4(), name: "", price: "", price2: ""};
 
   const addLine = (ar, fn) => {
-    const template = {name: "", price: "", price2: ""};
     if(Array.isArray(ar)) {
-      fn([...ar, template]);
+      fn([...ar, emptyObj]);
     }
   }
 
@@ -45,7 +46,7 @@ const PratosForm = ({pratosDia, pratosCarne, pratosPeixe}) => {
 const cleanLine = (array, callback, index) => {
   if (Array.isArray(array) && index >= 0 && index < array.length) {
       const newArray = [...array];
-      newArray[index] = {};
+      newArray[index] = emptyObj;
       callback(newArray);
   } else {
       throw new Error("Invalid array or index");
@@ -102,7 +103,7 @@ const cleanLine = (array, callback, index) => {
                 </div>
 
                 {Array.isArray(pratosDiaInput) ? pratosDiaInput.map((item,index,arr) => (
-                  <div className={styles.inputRow} key={item.name || index}>
+                  <div className={styles.inputRow} key={item._id}>
                     <div className={styles.nameInp}>
                       <NameInput index={index} menu="dia" defaultValue={item.name} name="name" placeholder="Polvo à..." data={pratosDiaInput} error={errorDia} inputUpdate={setPratosDiaInput} errorUpdate={setErrorDia}/>
                     </div>

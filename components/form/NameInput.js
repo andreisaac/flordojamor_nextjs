@@ -11,7 +11,7 @@ const NameInput = (props) => {
     const name = event.target.name;
     const reg = /^[\w\s\u00C0-\u017F\/]{4,40}$/g;
     let arr = [...props.data];
-    arr[props.index][props.name] = val
+    arr[props.index][props.name] = val;
     val.match(reg) ?
       props.errorUpdate(Object.assign(props.error, {[props.index]: false})) :
       props.errorUpdate(Object.assign(props.error, {[props.index]: "Entre 4 a 40 caracteres."}));
