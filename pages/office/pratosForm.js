@@ -6,6 +6,7 @@ import NameInput from '@/components/form/NameInput';
 import NumberInput from '@/components/form/NumberInput';
 import CircleCross from "../images/cross-circle.svg";
 import Eraser from "../images/eraser.svg";
+import Loading from "../images/loading.svg";
 
 
 
@@ -101,7 +102,7 @@ const cleanLine = (array, callback, index) => {
                   <div className={styles.dose}>1 Dose</div>
                 </div>
 
-                {Array.isArray(pratosDiaInput) ? pratosDiaInput.map((item,index,arr) => (
+                {Array.isArray(pratosDiaInput) ? pratosDiaInput.map((item,index) => (
                   <div className={styles.inputRow} key={item._id}>
                     <div className={styles.nameInp}>
                       <NameInput index={index} menu="dia" defaultValue={item.name} name="name" placeholder="Polvo à..." data={pratosDiaInput} error={errorDia} inputUpdate={setPratosDiaInput} errorUpdate={setErrorDia}/>
@@ -113,8 +114,8 @@ const cleanLine = (array, callback, index) => {
                       <NumberInput index={index} menu="dia" defaultValue={item.price2||""} name="price2" placeholder="13" data={pratosDiaInput||""} error={errorDia} inputUpdate={setPratosDiaInput} errorUpdate={setErrorDia}/>
                     </div>
                     <div className={styles.func}>
-                      <a  onClick={() => cleanLine(pratosDiaInput, setPratosDiaInput, index)} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="svg logo"/></a>
-                      <a  onClick={()=> deleteLine(pratosDiaInput, setPratosDiaInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="svg logo"/></a>
+                      <a  onClick={() => cleanLine(pratosDiaInput, setPratosDiaInput, index)} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="erase"/></a>
+                      <a  onClick={()=> deleteLine(pratosDiaInput, setPratosDiaInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="remove"/></a>
                     </div>
                   </div>
                 )) : null}
@@ -123,7 +124,7 @@ const cleanLine = (array, callback, index) => {
                 {!diaLoading ?
                   <a className={styles.submitInput} disabled={diaLoading} onClick={() => submitDia()}><i className="fa fa-check"/> Submeter Menu</a>
                   :
-                  <span className={styles.loaderInput}><i className="fa-solid fa-spinner fa-spin"></i></span>
+                  <span className={styles.loaderInput}><Image src={Loading} width={26} height={26} alt="loading" className={styles.loading}/></span>
                 }
               </div>
             </div>
@@ -141,7 +142,7 @@ const cleanLine = (array, callback, index) => {
                   <div className={styles.hdose}>1/2 Dose</div>
                   <div className={styles.dose}>1 Dose</div>
                 </div>
-                {Array.isArray(pratosCarneInput) ? pratosCarneInput.map((item,index,arr) => (
+                {Array.isArray(pratosCarneInput) ? pratosCarneInput.map((item,index) => (
                   <div className={styles.inputRow} key={item._id}>
                     <div className={styles.nameInp}>
                       <NameInput index={index} menu="carne" defaultValue={item.name} name="name" placeholder="Polvo à..." data={pratosCarneInput} error={errorCarne} inputUpdate={setPratosCarneInput} errorUpdate={setErrorCarne}/>
@@ -153,8 +154,8 @@ const cleanLine = (array, callback, index) => {
                       <NumberInput index={index} menu="carne" defaultValue={item.price2||""} name="price2" placeholder="13" data={pratosCarneInput||""} error={errorCarne} inputUpdate={setPratosCarneInput} errorUpdate={setErrorCarne}/>
                     </div>
                     <div className={styles.func}>
-                    <a  onClick={() => cleanLine(pratosCarneInput, setPratosCarneInput, index)} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="svg logo"/></a>
-                      <a  onClick={()=> deleteLine(pratosCarneInput, setPratosCarneInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="svg logo"/></a>
+                    <a  onClick={() => cleanLine(pratosCarneInput, setPratosCarneInput, index)} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="erase"/></a>
+                      <a  onClick={()=> deleteLine(pratosCarneInput, setPratosCarneInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="remove"/></a>
                     </div>
                   </div>
                 )) : null}
@@ -163,7 +164,7 @@ const cleanLine = (array, callback, index) => {
                 {!carneLoading ?
                   <a className={styles.submitInput} disabled={carneLoading} onClick={() => submitCarne()}><i className="fa fa-check"/> Submeter Menu</a>
                   :
-                  <span className={styles.loaderInput}><i className="fa-solid fa-spinner fa-spin"></i></span>
+                  <span className={styles.loaderInput}><Image src={Loading} width={26} height={26} alt="loading" className={styles.loading}/></span>
                 }
               </div>
             </div>
@@ -181,7 +182,7 @@ const cleanLine = (array, callback, index) => {
                   <div className={styles.hdose}>1/2 Dose</div>
                   <div className={styles.dose}>1 Dose</div>
                 </div>
-                {Array.isArray(pratosPeixeInput) ? pratosPeixeInput.map((item,index,arr) => (
+                {Array.isArray(pratosPeixeInput) ? pratosPeixeInput.map((item,index) => (
                   <div className={styles.inputRow} key={item._id}>
                     <div className={styles.nameInp}>
                       <NameInput index={index} menu="peixe" defaultValue={item.name} name="name" placeholder="Polvo à..." data={pratosPeixeInput} error={errorPeixe} inputUpdate={setPratosPeixeInput} errorUpdate={setErrorPeixe}/>
@@ -193,8 +194,8 @@ const cleanLine = (array, callback, index) => {
                       <NumberInput index={index} menu="peixe" defaultValue={item.price2||""} name="price2" placeholder="13" data={pratosPeixeInput||""} error={errorPeixe} inputUpdate={setPratosPeixeInput} errorUpdate={setErrorPeixe}/>
                     </div>
                     <div className={styles.func}>
-                      <a  onClick={() => cleanLine(pratosPeixeInput, setPratosPeixeInput, index)} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="svg logo"/></a>
-                      <a  onClick={()=> deleteLine(pratosPeixeInput, setPratosPeixeInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="svg logo"/></a>
+                      <a  onClick={() => cleanLine(pratosPeixeInput, setPratosPeixeInput, index)} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="erase"/></a>
+                      <a  onClick={()=> deleteLine(pratosPeixeInput, setPratosPeixeInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="remove"/></a>
                     </div>
                   </div>
                 )) : null}
@@ -203,7 +204,7 @@ const cleanLine = (array, callback, index) => {
                 {!peixeLoading ?
                   <a className={styles.submitInput} disabled={peixeLoading} onClick={() => submitPeixe()}><i className="fa fa-check"/> Submeter Menu</a>
                   :
-                  <span className={styles.loaderInput}><i className="fa-solid fa-spinner fa-spin"></i></span>
+                  <span className={styles.loaderInput}><Image src={Loading} width={26} height={26} alt="loading" className={styles.loading}/></span>
                 }
               </div>
             </div>
