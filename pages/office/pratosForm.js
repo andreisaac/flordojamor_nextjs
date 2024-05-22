@@ -113,7 +113,7 @@ const cleanLine = (array, callback, index) => {
                       <NumberInput index={index} menu="dia" defaultValue={item.price2||""} name="price2" placeholder="13" data={pratosDiaInput||""} error={errorDia} inputUpdate={setPratosDiaInput} errorUpdate={setErrorDia}/>
                     </div>
                     <div className={styles.func}>
-                      <a  onClick={null} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="svg logo"/></a>
+                      <a  onClick={() => cleanLine(pratosDiaInput, setPratosDiaInput, index)} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="svg logo"/></a>
                       <a  onClick={()=> deleteLine(pratosDiaInput, setPratosDiaInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="svg logo"/></a>
                     </div>
                   </div>
@@ -142,7 +142,7 @@ const cleanLine = (array, callback, index) => {
                   <div className={styles.dose}>1 Dose</div>
                 </div>
                 {Array.isArray(pratosCarneInput) ? pratosCarneInput.map((item,index,arr) => (
-                  <div className={styles.inputRow} key={index}>
+                  <div className={styles.inputRow} key={item._id}>
                     <div className={styles.nameInp}>
                       <NameInput index={index} menu="carne" defaultValue={item.name} name="name" placeholder="Polvo à..." data={pratosCarneInput} error={errorCarne} inputUpdate={setPratosCarneInput} errorUpdate={setErrorCarne}/>
                     </div>
@@ -153,8 +153,8 @@ const cleanLine = (array, callback, index) => {
                       <NumberInput index={index} menu="carne" defaultValue={item.price2||""} name="price2" placeholder="13" data={pratosCarneInput||""} error={errorCarne} inputUpdate={setPratosCarneInput} errorUpdate={setErrorCarne}/>
                     </div>
                     <div className={styles.func}>
-                    <a  onClick={null} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="svg logo"/></a>
-                      <a  onClick={()=> deleteLine(pratosDiaInput, setPratosDiaInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="svg logo"/></a>
+                    <a  onClick={() => cleanLine(pratosCarneInput, setPratosCarneInput, index)} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="svg logo"/></a>
+                      <a  onClick={()=> deleteLine(pratosCarneInput, setPratosCarneInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="svg logo"/></a>
                     </div>
                   </div>
                 )) : null}
@@ -182,7 +182,7 @@ const cleanLine = (array, callback, index) => {
                   <div className={styles.dose}>1 Dose</div>
                 </div>
                 {Array.isArray(pratosPeixeInput) ? pratosPeixeInput.map((item,index,arr) => (
-                  <div className={styles.inputRow} key={index}>
+                  <div className={styles.inputRow} key={item._id}>
                     <div className={styles.nameInp}>
                       <NameInput index={index} menu="peixe" defaultValue={item.name} name="name" placeholder="Polvo à..." data={pratosPeixeInput} error={errorPeixe} inputUpdate={setPratosPeixeInput} errorUpdate={setErrorPeixe}/>
                     </div>
@@ -193,8 +193,8 @@ const cleanLine = (array, callback, index) => {
                       <NumberInput index={index} menu="peixe" defaultValue={item.price2||""} name="price2" placeholder="13" data={pratosPeixeInput||""} error={errorPeixe} inputUpdate={setPratosPeixeInput} errorUpdate={setErrorPeixe}/>
                     </div>
                     <div className={styles.func}>
-                      <a  onClick={null} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="svg logo"/></a>
-                      <a  onClick={()=> deleteLine(pratosDiaInput, setPratosDiaInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="svg logo"/></a>
+                      <a  onClick={() => cleanLine(pratosPeixeInput, setPratosPeixeInput, index)} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="svg logo"/></a>
+                      <a  onClick={()=> deleteLine(pratosPeixeInput, setPratosPeixeInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="svg logo"/></a>
                     </div>
                   </div>
                 )) : null}

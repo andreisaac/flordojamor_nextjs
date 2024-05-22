@@ -1,50 +1,64 @@
-import { Lucia } from "lucia";
 import { MongodbAdapter } from "@lucia-auth/adapter-mongodb";
-import mongoose, {Schema, Document} from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
-
-
+// Email validation function
 const validateEmail = function(email) {
-    var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return re.test(email)
+  const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return re.test(email);
 };
 
+// User document interface
 export interface UserDocument extends Document {
-  _id: string,
-  email: string,
-  password: string,
-  hashedPassword: string
+  _id: string;
+  email: string;
+  password: string;
+  hashedPassword: string;
 }
 
-const user : Schema = new Schema({
-    _id: Schema.Types.ObjectId,
-    email: String,
-    password: String,
-    hashedPassword: String
-  });
+// User schema definition with email validation
+const userSchema: Schema = new Schema({
+  _id: { type: Schema.Types.ObjectId, auto: true },
+  email: {
+    type: String,
+    required: true,
+    validate: [validateEmail, 'Please fill a valid email address'],
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  hashedPassword: {
+    type: String,
+    required: true
+  }
+});
 
-  export const User = mongoose.models.User|| mongoose.model<UserDocument>('User', user);
+export const User = mongoose.models.User || mongoose.model<UserDocument>('User', userSchema);
 
-const session : Schema = new Schema({
-    _id: {
-      type: String,
-      required: true
-    },
-    user_id: {
-      type: String,
-      required: true
-    },
-    expires_at: {
-      type: Date,
-      required: true
-    }
-  } as const,
-  { _id: false }
-);
+// Session schema definition
+const sessionSchema: Schema = new Schema({
+  _id: {
+    type: String,
+    required: true
+  },
+  user_id: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  expires_at: {
+    type: Date,
+    required: true
+  }
+}, { _id: false });
 
-export const Session = mongoose.models.Session|| mongoose.model('Session', session);
+export const Session = mongoose.models.Session || mongoose.model('Session', sessionSchema);
 
+// MongoDB adapter setup
 const adapter = new MongodbAdapter(
-	mongoose.connection.collection("sessions"),
-	mongoose.connection.collection("users")
+  mongoose.connection.db.collection("sessions") as any,
+  mongoose.connection.db.collection("users") as any
 );
+
+export default adapter;
