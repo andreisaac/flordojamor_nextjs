@@ -55,10 +55,17 @@ const sessionSchema: Schema = new Schema({
 
 export const Session = mongoose.models.Session || mongoose.model('Session', sessionSchema);
 
-// MongoDB adapter setup
-const adapter = new MongodbAdapter(
-  mongoose.connection.db.collection("sessions") as any,
-  mongoose.connection.db.collection("users") as any
-);
+
+
+let adapter: MongodbAdapter | undefined;
+const getAdapter = () => {
+  if (!adapter) {
+    adapter = new MongodbAdapter(
+      mongoose.connection.db.collection("sessions") as any,
+      mongoose.connection.db.collection("users") as any
+    );
+  }
+  return adapter;
+};
 
 export default adapter;
