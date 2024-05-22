@@ -7,7 +7,7 @@ import {User} from "@/models/user"
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-
+	await connectToDatabase();
 	if (req.method !== "POST") {
 		res.status(404).end();
 		return;
@@ -44,9 +44,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		password,
 		user.hashedPassword
 	);
-
-	console.log(hashedPassword);
-	console.log(passwordIsValid);
 
 
 	if (!user) {
