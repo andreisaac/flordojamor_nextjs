@@ -45,7 +45,7 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
     <Layout>
       <Head>
         <title>Menu</title>
-        <meta name="description" content='Nesta página pode consultar o menu do dia do Restaurante Flor do Jamor, em baixo tem os contatos telefónicos assim como a morada. Pratos do dia atualizados diáriamente por volta das 10h30'/>
+        <meta name="description" content='Consulte o menu do Restaurante Flor do Jamor, tem os contatos telefónicos para fazer a sua reserva!. '/>
       </Head>
       <div className={styles.menu}>
         <div className={styles.rowPadding}>
