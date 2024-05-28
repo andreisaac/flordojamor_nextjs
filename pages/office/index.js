@@ -24,6 +24,7 @@ const Office = ({pratosDia, pratosCarne, pratosPeixe}) => {
     <Layout>
       <Head>
         <title>Backoffice</title>
+        <meta name="robots" content="noindex"></meta>
       </Head>
       <PratosForm pratosDia={pDia} pratosCarne={pCarne} pratosPeixe={pPeixe}>
       </PratosForm>

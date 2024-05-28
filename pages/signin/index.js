@@ -49,6 +49,7 @@ const Auth = (props) => {
     <Layout>
     <Head>
         <title>Login</title>
+        <meta name="robots" content="noindex"></meta>
     </Head>
     <main className={styles.auth}>
         <div className={styles.container}>
