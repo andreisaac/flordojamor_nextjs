@@ -63,7 +63,7 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
                         {pDia && typeof Array.isArray(pDia.pratos) ? pDia.pratos.map((item,index) => (
                           <tr key={index} className={item.over ? styles.overMenu : ""}>
                             <td id="menuName">{item.name}</td>
-                            <td className={styles.menuPrice}>{item.price ? item.price.toFixed(2) : ""} € {item.price2 && item.price2 !== null ? " / " + (item.price2.toFixed(2)) +"€": ""}</td>
+                            <td className={styles.menuPrice}>{item.price ? item.price.toFixed(2) + "€" : ""} {(item.price && item.price !== null) && (item.price2 && item.price2 !== null) ? " / " : ""} {item.price2 && item.price2 !== null ? "" + (item.price2.toFixed(2)) +"€": ""}</td>
                           </tr>)) : ""}
                       </tbody>
                     </table>

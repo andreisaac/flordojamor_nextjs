@@ -26,7 +26,7 @@ const PratosForm = ({pratosDia, pratosCarne, pratosPeixe}) => {
   const [carneLoading, setCarneLoading] = useState(false);
   const [peixeLoading, setPeixeLoading] = useState(false);
 
-  const emptyObj = {_id: uuidv4(), name: "", price: "", price2: ""};
+  const emptyObj = {id: uuidv4(), name: "", price: "", price2: ""};
 
   const addLine = (ar, fn) => {
     if(Array.isArray(ar)) {
@@ -103,7 +103,7 @@ const cleanLine = (array, callback, index) => {
                 </div>
 
                 {Array.isArray(pratosDiaInput) ? pratosDiaInput.map((item,index) => (
-                  <div className={styles.inputRow} key={item._id}>
+                  <div className={styles.inputRow} key={item._id || item.id}>
                     <div className={styles.nameInp}>
                       <NameInput index={index} menu="dia" defaultValue={item.name} name="name" placeholder="Polvo à..." data={pratosDiaInput} error={errorDia} inputUpdate={setPratosDiaInput} errorUpdate={setErrorDia}/>
                     </div>
@@ -143,7 +143,7 @@ const cleanLine = (array, callback, index) => {
                   <div className={styles.dose}>1 Dose</div>
                 </div>
                 {Array.isArray(pratosCarneInput) ? pratosCarneInput.map((item,index) => (
-                  <div className={styles.inputRow} key={item._id}>
+                  <div className={styles.inputRow} key={item._id || item.id}>
                     <div className={styles.nameInp}>
                       <NameInput index={index} menu="carne" defaultValue={item.name} name="name" placeholder="Polvo à..." data={pratosCarneInput} error={errorCarne} inputUpdate={setPratosCarneInput} errorUpdate={setErrorCarne}/>
                     </div>
@@ -183,7 +183,7 @@ const cleanLine = (array, callback, index) => {
                   <div className={styles.dose}>1 Dose</div>
                 </div>
                 {Array.isArray(pratosPeixeInput) ? pratosPeixeInput.map((item,index) => (
-                  <div className={styles.inputRow} key={item._id}>
+                  <div className={styles.inputRow} key={item._id || item.id}>
                     <div className={styles.nameInp}>
                       <NameInput index={index} menu="peixe" defaultValue={item.name} name="name" placeholder="Polvo à..." data={pratosPeixeInput} error={errorPeixe} inputUpdate={setPratosPeixeInput} errorUpdate={setErrorPeixe}/>
                     </div>

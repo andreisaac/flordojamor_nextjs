@@ -19,8 +19,13 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse )
       }
       break;
     case "POST":
+        console.log(req.body);
       try {
         const pDia = await PratosDia.findOneAndUpdate({},{date: new Date(), pratos: req.body},{upsert: true});
+        console.log(pDia);
+        console.log(req.body);
+        
+        
         await res.revalidate("/");
         res.status(201).json({ success: true, data: pDia, revalidate: true });
       } catch (error) {
