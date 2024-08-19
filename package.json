@@ -26,7 +26,7 @@
     "sass": "^1.68.0",
     "sharp": "^0.33.3",
     "uuid": "^9.0.1",
-    "weelytical-react": "^1.2.1"
+    "weelytical-react": "^1.2.2"
   },
   "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
   "main": "next.config.js",
