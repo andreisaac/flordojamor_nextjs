@@ -1,5 +1,6 @@
 
 const nextConfig = {
+  crossOrigin: 'anonymous',
   i18n: {
     locales: ["en", "pt"],
     defaultLocale: "pt-PT", // default lang pt
