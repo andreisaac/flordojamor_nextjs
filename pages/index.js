@@ -52,7 +52,7 @@ const Menu = ({pratosDia, pratosCarne, pratosPeixe}) => {
           <div className={styles.divisions}>
             <div className={styles.pratosDia}>
               <h2 id="pratosDia">
-                <Image src={h2Back} alt="Background do titulo" className={styles.h2Back} priority={true}/>
+                <Image src={h2Back} alt="Background do titulo" className={styles.h2Back} priority/>
                 <span>Pratos do Dia:</span>
                 </h2>
                 {pDia && pDia.date && date ? (
