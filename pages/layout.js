@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <Weelytical/>
         <Navbar/>
         {background ? 
-          <Image className={styles.background} src={background} alt="Picture of the background" sizes="100vw" priority={true}/>
+          <Image className={styles.background} src={background} alt="Picture of the background" sizes="100vw" priority/>
           : ""}
         <div>
           {children}
