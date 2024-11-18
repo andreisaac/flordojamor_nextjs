@@ -31,10 +31,13 @@ const Auth = (props) => {
       body: JSON.stringify(data)
     });
 
+
+
     if(response.ok) {
       router.push("/office");
     } else {
-      setFormError("Email ou password errado.")
+      const error = await response.json();
+      setFormError(error.error);
     }
   }
 
@@ -61,7 +64,7 @@ const Auth = (props) => {
             <PasswordInput name="password" label="Palavra-passe:" value={password} inputUpdate={setPassword} error={passwordError} errorUpdate={setPasswordError}/>
             
             {formError  ? (
-            <div className={styles.inputErrorAlert}>Email ou password errado.</div>
+            <div className={styles.inputErrorAlert}>{formError}</div>
           ) : null}
 
             <button className={styles.btnGreen} disabled={disableSubmit()}>Entrar</button>

@@ -28,6 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	const password = body?.password;
 
 	if (!password || password.length < 6 || password.length > 255) {
+		
 		res.status(400).json({
 			error: "Invalid password"
 		});
@@ -38,23 +39,23 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	const hashedPassword : string = await bcrypt.hash(password, salt);
 	const user = await User.findOneAndUpdate({email: req.body.email});
 
-
+	
+	
 
 	const passwordIsValid : boolean = await bcrypt.compare(
 		password,
 		user.hashedPassword
 	);
 
-
 	if (!user) {
 		res.status(400).json({
-			error: "Incorrect username or password"
+			error: "Incorrect email"
 		});
 		return;
 	}
 	if (!passwordIsValid) {
 		res.status(400).json({
-			error: "Incorrect username or password"
+			error: "Incorrect password"
 		});
 		return;
 	}

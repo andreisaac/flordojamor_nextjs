@@ -104,13 +104,13 @@ const cleanLine = (array, callback, index) => {
 
                 {Array.isArray(pratosDiaInput) ? pratosDiaInput.map((item,index) => (
                   <div className={styles.inputRow} key={item._id || item.id}>
-                    <div className={styles.nameInp}>
+                    <div className={styles.nameInput}>
                       <NameInput index={index} menu="dia" defaultValue={item.name} name="name" placeholder="Polvo à..." data={pratosDiaInput} error={errorDia} inputUpdate={setPratosDiaInput} errorUpdate={setErrorDia}/>
                     </div>
-                    <div className={styles.priceInp}>
+                    <div className={styles.priceInput}>
                       <NumberInput index={index} menu="dia" defaultValue={item.price} name="price" placeholder="7.5" data={pratosDiaInput} error={errorDia} inputUpdate={setPratosDiaInput} errorUpdate={setErrorDia}/>
                     </div>
-                    <div className={styles.price2Inp}>
+                    <div className={styles.price2Input}>
                       <NumberInput index={index} menu="dia" defaultValue={item.price2||""} name="price2" placeholder="13" data={pratosDiaInput||""} error={errorDia} inputUpdate={setPratosDiaInput} errorUpdate={setErrorDia}/>
                     </div>
                     <div className={styles.func}>
@@ -139,7 +139,6 @@ const cleanLine = (array, callback, index) => {
 
                 <div className={styles.rowPadding}>
                   <div className={styles.name}>Nome</div>
-                  <div className={styles.hdose}>1/2 Dose</div>
                   <div className={styles.dose}>1 Dose</div>
                 </div>
                 {Array.isArray(pratosCarneInput) ? pratosCarneInput.map((item,index) => (
@@ -150,9 +149,7 @@ const cleanLine = (array, callback, index) => {
                     <div className={styles.priceInp}>
                       <NumberInput index={index} menu="carne" defaultValue={item.price} name="price" placeholder="7.5" data={pratosCarneInput} error={errorCarne} inputUpdate={setPratosCarneInput} errorUpdate={setErrorCarne}/>
                     </div>
-                    <div className={styles.price2Inp}>
-                      <NumberInput index={index} menu="carne" defaultValue={item.price2||""} name="price2" placeholder="13" data={pratosCarneInput||""} error={errorCarne} inputUpdate={setPratosCarneInput} errorUpdate={setErrorCarne}/>
-                    </div>
+
                     <div className={styles.func}>
                     <a  onClick={() => cleanLine(pratosCarneInput, setPratosCarneInput, index)} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="erase"/></a>
                       <a  onClick={()=> deleteLine(pratosCarneInput, setPratosCarneInput, index)} className={styles.del}><Image src={CircleCross} width={26} height={26} alt="remove"/></a>
@@ -179,7 +176,6 @@ const cleanLine = (array, callback, index) => {
 
                 <div className={styles.rowPadding}>
                   <div className={styles.name}>Nome</div>
-                  <div className={styles.hdose}>1/2 Dose</div>
                   <div className={styles.dose}>1 Dose</div>
                 </div>
                 {Array.isArray(pratosPeixeInput) ? pratosPeixeInput.map((item,index) => (
@@ -189,9 +185,6 @@ const cleanLine = (array, callback, index) => {
                     </div>
                     <div className={styles.priceInp}>
                       <NumberInput index={index} menu="peixe" defaultValue={item.price} name="price" placeholder="7.5" data={pratosPeixeInput} error={errorPeixe} inputUpdate={setPratosPeixeInput} errorUpdate={setErrorPeixe}/>
-                    </div>
-                    <div className={styles.price2Inp}>
-                      <NumberInput index={index} menu="peixe" defaultValue={item.price2||""} name="price2" placeholder="13" data={pratosPeixeInput||""} error={errorPeixe} inputUpdate={setPratosPeixeInput} errorUpdate={setErrorPeixe}/>
                     </div>
                     <div className={styles.func}>
                       <a  onClick={() => cleanLine(pratosPeixeInput, setPratosPeixeInput, index)} className={styles.clean}><Image src={Eraser} width={26} height={26} alt="erase"/></a>
