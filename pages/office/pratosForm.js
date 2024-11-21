@@ -139,6 +139,8 @@ const cleanLine = (array, callback, index) => {
 
                 <div className={styles.rowPadding}>
                   <div className={styles.name}>Nome</div>
+                  
+                  <div className={styles.hdose}>.</div>
                   <div className={styles.dose}>1 Dose</div>
                 </div>
                 {Array.isArray(pratosCarneInput) ? pratosCarneInput.map((item,index) => (
@@ -176,6 +178,7 @@ const cleanLine = (array, callback, index) => {
 
                 <div className={styles.rowPadding}>
                   <div className={styles.name}>Nome</div>
+                  <div className={styles.hdose}>.</div>
                   <div className={styles.dose}>1 Dose</div>
                 </div>
                 {Array.isArray(pratosPeixeInput) ? pratosPeixeInput.map((item,index) => (
